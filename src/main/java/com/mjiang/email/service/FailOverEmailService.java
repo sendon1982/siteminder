@@ -59,14 +59,12 @@ public class FailOverEmailService {
 
         Map<EmailServiceVendor, EmailService> runningEmailServiceMap = new LinkedHashMap<>();
 
-        for (EmailServiceVendor emailServiceVendor : registeredEmailServiceMap.keySet()) {
-
+        registeredEmailServiceMap.keySet().forEach(emailServiceVendor -> {
             EmailService emailService = registeredEmailServiceMap.get(emailServiceVendor);
-            
             if (emailService.isRunning()) {
                 runningEmailServiceMap.put(emailServiceVendor, emailService);
             }
-		}
+        });
 
         if (CollectionUtils.isEmpty(runningEmailServiceMap)) {
             throw new NoRunningEmailServerException("No running email server");
