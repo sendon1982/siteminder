@@ -26,6 +26,7 @@ Go to terminal and run java -jar target/email-service-0.0.1-SNAPSHOT.jar
 
 3. If response is 200, then email sending is successful.
 
+4. If validation fails, then response code is 400 BAD REQUEST
 
 # TODO list if more time allowed
 1. I would build 4 web service, one as central control service to route all the requests, one registry service to record 
@@ -37,4 +38,4 @@ such as SendGrid and MailGun.
 
 3. Add a health between email service to remote service provider to add or remove email services in good or bad status.
 
-4. Add more tests
+4. Controller validation can be improved and add more tests
