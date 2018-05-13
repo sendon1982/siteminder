@@ -1,11 +1,8 @@
 package com.mjiang.email.web.rest;
 
-import com.mjiang.email.exception.RequestValidationException;
-import com.mjiang.email.model.EmailRequest;
 import com.mjiang.email.service.FailOverEmailService;
 import com.mjiang.email.service.TestUtil;
 import com.mjiang.email.util.JsonUtil;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

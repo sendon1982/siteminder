@@ -1,20 +1,11 @@
 package com.mjiang.email.model;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Length;
-
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class EmailRequest {
 
-    @NotBlank(message = "Email from can't empty!")
-    @Email
     private String from;
 
     private Set<String> to = new LinkedHashSet<>();
@@ -23,12 +14,8 @@ public class EmailRequest {
 
     private Set<String> bcc = new LinkedHashSet<>();
 
-    @NotNull
-    @Size(min = 3)
     private String subject;
 
-    @NotNull
-    @Size(min = 5)
     private String body;
 
     public String getFrom() {

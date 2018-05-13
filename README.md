@@ -1,6 +1,7 @@
 # How to run the App
+1. Go to terminal and run ```mvn clean package```
 
-Go to terminal and run java -jar target/email-service-0.0.1-SNAPSHOT.jar
+2. Run ```java -jar target/email-service-0.0.1-SNAPSHOT.jar```
 
 # How to test the App
 
