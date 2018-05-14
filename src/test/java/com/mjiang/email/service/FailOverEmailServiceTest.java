@@ -136,6 +136,7 @@ class FailOverEmailServiceTest {
 
         // Set the localTime to select EmailService index 0, which is mailGunEmailService
         emailService.setLocalTime(LocalTime.parse("10:10:00"));
+        emailService.setDebug(true);
 
         registerBothEmailServiceMap();
 
@@ -159,6 +160,7 @@ class FailOverEmailServiceTest {
 
         // Set the localTime to select EmailService index 1, which is sendGridEmailService
         emailService.setLocalTime(LocalTime.parse("10:10:01"));
+        emailService.setDebug(true);
 
         registerBothEmailServiceMap();
 
@@ -183,6 +185,7 @@ class FailOverEmailServiceTest {
 
         // Set the localTime to select EmailService index 0, which is mailGunEmailService
         emailService.setLocalTime(LocalTime.parse("10:10:00"));
+        emailService.setDebug(true);
 
         registerBothEmailServiceMap();
 
@@ -209,6 +212,7 @@ class FailOverEmailServiceTest {
 
         // Set the localTime to select EmailService index 0, which is mailGunEmailService
         emailService.setLocalTime(LocalTime.parse("10:10:01"));
+        emailService.setDebug(true);
 
         registerBothEmailServiceMap();
 

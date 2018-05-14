@@ -21,6 +21,8 @@ public class FailOverEmailService {
 
     private LocalTime localTime;
 
+    private boolean debug = false;
+
     public void sendEmail(EmailRequest request) {
         Map<EmailServiceVendor, EmailService> runningEmailServiceMap = getRunningEmailServiceMap();
 
@@ -50,6 +52,10 @@ public class FailOverEmailService {
 
     void setLocalTime(LocalTime localTime) {
         this.localTime = localTime;
+    }
+
+    void setDebug(boolean debug) {
+        this.debug = debug;
     }
 
     private Map<EmailServiceVendor, EmailService> getRunningEmailServiceMap() {
@@ -94,6 +100,11 @@ public class FailOverEmailService {
         }
 
         int second = localTime.getSecond();
+
+        if (!debug) {
+            second = LocalTime.now().getSecond();
+        }
+
         return (second % runningEmailServerCount);
     }
 
