@@ -31,7 +31,7 @@ public class BaseGatewayClient {
             HttpResponse httpResponse = httpClient.execute(httpRequest);
             int statusCode = httpResponse.getStatusLine().getStatusCode();
             String responseString = getResponseString(httpResponse);
-            if (statusCode == HttpStatus.SC_OK) {
+            if (statusCode == HttpStatus.SC_OK || statusCode == HttpStatus.SC_ACCEPTED) {
                 result = responseString;
             } else {
                 throw new UnknownRemoteServerException("Unknown remote server exception");

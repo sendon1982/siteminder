@@ -14,6 +14,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
+import org.springframework.util.CollectionUtils;
 
 public class MailGunGatewayClient extends BaseGatewayClient implements EmailServiceGateway {
 
@@ -33,6 +34,14 @@ public class MailGunGatewayClient extends BaseGatewayClient implements EmailServ
             splitSetToStringByComma(request.getTo()),
             encodeString(request.getSubject()),
             encodeString(request.getBody()));
+
+        if (!CollectionUtils.isEmpty(request.getCc())) {
+            path = path + "&cc=" + splitSetToStringByComma(request.getCc());
+        }
+
+        if (!CollectionUtils.isEmpty(request.getBcc())) {
+            path = path + "&bcc=" + splitSetToStringByComma(request.getBcc());
+        }
 
         HttpPost httpPost = createHttpPost(path, basicAuth);
 
