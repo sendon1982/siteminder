@@ -27,7 +27,6 @@ public class MailGunGatewayClient extends BaseGatewayClient implements EmailServ
         String endpoint = env.getProperty("mailgun.api.endpoint");
         String basicAuth = buildHttpBasicAuthHeader("api", env.getProperty("mailgun.api.user.apiKey"));
 
-        // TODO handle cc and bcc
         String path = String.format("%s?from=%s&to=%s&subject=%s&text=%s",
             endpoint,
             request.getFrom(),
