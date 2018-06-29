@@ -36,6 +36,16 @@ public class AppConfig {
     }
 
     @Bean
+    public HttpClient httpClient2() {
+        HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
+
+        httpClientBuilder.setMaxConnPerRoute(100);
+        httpClientBuilder.setMaxConnTotal(200);
+
+        return httpClientBuilder.build();
+    }
+
+    @Bean
     public EmailServiceProvider emailServiceProvider() {
         EmailServiceProvider emailServiceProvider = new EmailServiceProvider();
 

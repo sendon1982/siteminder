@@ -89,4 +89,8 @@ public class MailGunGatewayClient extends BaseGatewayClient implements EmailServ
     public Environment getEnv() {
         return env;
     }
+
+    public HttpClient getHttpClient() {
+        return this.httpClient;
+    }
 }

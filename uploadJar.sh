@@ -1,1 +1,1 @@
-scp -r target/email-service-0.0.1-SNAPSHOT.jar ultrarb@104.238.99.172:/home/ultrarb/jar
+scp -r target/siteminder-0.0.1-SNAPSHOT.jar ultrarb@104.238.99.172:/home/ultrarb/jar
