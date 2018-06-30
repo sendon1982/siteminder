@@ -8,8 +8,8 @@ import org.jooq.Record;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import static domain.Tables.BROKER_BUY_STOCK_INFO;
-import static domain.Tables.BROKER_BUY_SUMMARY;
+import static com.mjiang.email.jooq.domain.Tables.BROKER_BUY_STOCK_INFO;
+import static com.mjiang.email.jooq.domain.Tables.BROKER_BUY_SUMMARY;
 
 @Repository
 public class BrokerRepository {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.mjiang.email.model.BrokerPlacedOrder.StockSummary;
 import com.mjiang.email.util.JsonUtil;
 import org.joda.time.LocalDate;
@@ -95,7 +96,9 @@ public class BrokerBuyResponseData {
     private BrokerPlacedOrder buildBrokerPlacedOrder(String[] recordArray) {
         BrokerPlacedOrder brokerPlacedOrder = new BrokerPlacedOrder();
 
-        List<StockSummary> stockSummaryList = JsonUtil.convertToObject(recordArray[0], List.class);
+        List<StockSummary> stockSummaryList = JsonUtil.convertToObject(
+            recordArray[0], new TypeReference<List<StockSummary>>(){});
+
         brokerPlacedOrder.setStockSummaryList(stockSummaryList);
 
         brokerPlacedOrder.setBrokerCode(recordArray[1]);
@@ -103,8 +106,8 @@ public class BrokerBuyResponseData {
         brokerPlacedOrder.setsMoney(convertToBigDecimal(recordArray[3]));
         brokerPlacedOrder.setbMoney(convertToBigDecimal(recordArray[4]));
         brokerPlacedOrder.setJmMoney(convertToBigDecimal(recordArray[5]));
-        brokerPlacedOrder.setBrokerBuyCount(convertToInt(recordArray[6]));
-        brokerPlacedOrder.setBrokerSellCount(convertToInt(recordArray[7]));
+        brokerPlacedOrder.setBrokerBuyCount(convertToLong(recordArray[6]));
+        brokerPlacedOrder.setBrokerSellCount(convertToLong(recordArray[7]));
         brokerPlacedOrder.setDate(LocalDate.parse(recordArray[8]));
 
         return brokerPlacedOrder;
@@ -126,15 +129,15 @@ public class BrokerBuyResponseData {
         return result;
     }
 
-    private int convertToInt(String source) {
-        int result = 0;
+    private long convertToLong(String source) {
+        long result = 0;
 
         if (StringUtils.isEmpty(source)) {
             return result;
         }
 
         try {
-            result = Integer.parseInt(source.trim());
+            result = Long.parseLong(source.trim());
         } catch (NumberFormatException e) {
             result = 0;
         }

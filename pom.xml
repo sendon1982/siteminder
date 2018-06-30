@@ -202,7 +202,7 @@
                                 </database>
                                 <target>
                                     <packageName>com.mjiang.email.jooq.domain</packageName>
-                                    <directory>src/gen/java</directory>
+                                    <directory>src/main/java/gen</directory>
                                 </target>
                             </generator>
                         </configuration>

@@ -3,6 +3,7 @@ package com.mjiang.email.util;
 import java.util.HashMap;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.mjiang.email.model.BrokerBuyResponse;
 import com.mjiang.email.model.BrokerBuyResponseData;
@@ -29,6 +30,16 @@ class JsonUtilTest {
         List<BrokerPlacedOrder> brokerPlacedOrderList = stockResponseDataList.get(0).getBrokerPlacedOrderList();
 
         assertThat(brokerPlacedOrderList, notNullValue());
+    }
 
+    @Test
+    void test_convertToObject_TypeReference() {
+        String json = "[{\"CodeName\":\"浩丰科技\",\"SCode\":\"300419.SZ\"}," +
+            "{\"CodeName\":\"中化岩土\",\"SCode\":\"002542.SZ\"}]";
+
+        List<BrokerPlacedOrder.StockSummary> stockSummaries = JsonUtil.convertToObject(
+            json, new TypeReference<List<BrokerPlacedOrder.StockSummary>>() {});
+
+        assertThat(stockSummaries.size(), equalTo(2));
     }
 }

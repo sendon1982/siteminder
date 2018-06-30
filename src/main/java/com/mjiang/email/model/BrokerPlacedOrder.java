@@ -24,9 +24,9 @@ public class BrokerPlacedOrder {
 
     private BigDecimal jmMoney;
 
-    private int brokerBuyCount;
+    private long brokerBuyCount;
 
-    private int brokerSellCount;
+    private long brokerSellCount;
 
     private LocalDate date;
 
@@ -78,19 +78,19 @@ public class BrokerPlacedOrder {
         this.jmMoney = jmMoney;
     }
 
-    public int getBrokerBuyCount() {
+    public long getBrokerBuyCount() {
         return brokerBuyCount;
     }
 
-    public void setBrokerBuyCount(int brokerBuyCount) {
+    public void setBrokerBuyCount(long brokerBuyCount) {
         this.brokerBuyCount = brokerBuyCount;
     }
 
-    public int getBrokerSellCount() {
+    public long getBrokerSellCount() {
         return brokerSellCount;
     }
 
-    public void setBrokerSellCount(int brokerSellCount) {
+    public void setBrokerSellCount(long brokerSellCount) {
         this.brokerSellCount = brokerSellCount;
     }
 
