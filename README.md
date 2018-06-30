@@ -10,33 +10,24 @@
 
 ```
 {
-  "from": "xxx@xxx.com",
-  "to": [
-    "sendon1982@gmail.com"
-  ],
-  "cc": [
-    "mjiang@tripadvisor.com"
-  ],
-  "bcc": [
-    "mjiang@viator.com"
-  ],
-  "subject": "This is subject",
-  "body": "This is body"
+  "Message": "",
+  "Status": 0,
+  "Data": [
+    {
+      "TableName": "RptLhbYybXQSumMap",
+      "TotalPage": 1,
+      "ConsumeMSecond": 94,
+      "SplitSymbol": "|",
+      "FieldName": "SName,YybCode,YybName,Smoney,Bmoney,JmMoney,YybBCount,YybSCount,TDate",
+      "Data": [
+        "[{\"CodeName\":\"珀莱雅\",\"SCode\":\"603605.SH\"}]|80052395|中国国际金融股份有限公司上海黄浦区湖滨路证券营业部||50535992.38|50535992.38|1|0|2018-06-29"
+      ]
+    }
+  ]
 }
 ```
 
-3. If response is 200, then email sending is successful.
-
-4. If validation fails, then response code is 400 BAD REQUEST
-
-# TODO list if more time allowed
-1. I would build 4 web service, one as central control service to route all the requests, one registry service to record 
-available email service list, register or remove from the list based on the situation and two email services to serve the 
-coming request. In this way, we can easily add or remove email services dynamically via registry service lookup.
-
-2. Each Email Service should be a separated web service which will communicate with the remote third party email service provider 
-such as SendGrid and MailGun.
-
-3. Add a health between email service to remote service provider to add or remove email services in good or bad status.
-
-4. Controller validation can be improved and add more tests
+3. Use `curl` to inert data into DB `data.json` where the json file on current path
+````
+curl -vX POST "http://localhost:8080/broker/purchaseSummary" -d @data.json --header "Content-Type: application/json"
+````

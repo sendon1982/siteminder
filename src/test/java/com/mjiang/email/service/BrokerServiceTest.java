@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mjiang.email.config.JpaConfig;
 import com.mjiang.email.model.BrokerPlacedOrder;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +24,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @ContextConfiguration(classes = { JpaConfig.class })
 @TestPropertySource(value = {"classpath:application.test.properties"})
 @Tag("ManualTest")
+@Ignore
 class BrokerServiceTest {
 
     @Autowired
