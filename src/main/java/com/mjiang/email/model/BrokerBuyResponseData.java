@@ -2,6 +2,7 @@ package com.mjiang.email.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -99,6 +100,9 @@ public class BrokerBuyResponseData {
         List<StockSummary> stockSummaryList = JsonUtil.convertToObject(
             recordArray[0], new TypeReference<List<StockSummary>>(){});
 
+        if (stockSummaryList == null) {
+            stockSummaryList = Collections.emptyList();
+        }
         brokerPlacedOrder.setStockSummaryList(stockSummaryList);
 
         brokerPlacedOrder.setBrokerCode(recordArray[1]);
