@@ -1,4 +1,6 @@
 --# tushare DB
+CREATE SCHEMA `tushare` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin ;
+
 
 CREATE TABLE `dragon_tiger_stock`
 (
