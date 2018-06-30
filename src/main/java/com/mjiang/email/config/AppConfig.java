@@ -17,9 +17,13 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 @Configuration
+@Import(value = {
+    JpaConfig.class
+})
 public class AppConfig {
 
     @Autowired
@@ -27,16 +31,6 @@ public class AppConfig {
 
     @Bean
     public HttpClient httpClient() {
-        HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
-
-        httpClientBuilder.setMaxConnPerRoute(100);
-        httpClientBuilder.setMaxConnTotal(200);
-
-        return httpClientBuilder.build();
-    }
-
-    @Bean
-    public HttpClient httpClient2() {
         HttpClientBuilder httpClientBuilder = HttpClientBuilder.create();
 
         httpClientBuilder.setMaxConnPerRoute(100);
