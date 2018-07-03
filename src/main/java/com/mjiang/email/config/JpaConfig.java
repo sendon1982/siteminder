@@ -34,7 +34,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.mjiang.email.dao.repository")
 @ComponentScan(basePackages = "com.mjiang.email")
-@EntityScan(basePackages = "com.mjiang.email.dao.entity")
 public class JpaConfig {
 
     @Autowired
@@ -43,31 +42,6 @@ public class JpaConfig {
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
-    }
-
-    @Bean
-    public PlatformTransactionManager transactionManager() {
-        EntityManagerFactory factory = entityManagerFactory().getObject();
-        return new JpaTransactionManager(factory);
-    }
-
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        factory.setDataSource(dataSource());
-        factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.mjiang.email.dao.entity");
-        HibernateJpaDialect jpaDialect = new HibernateJpaDialect();
-        factory.setJpaDialect(jpaDialect);
-        factory.afterPropertiesSet();
-        factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
-        return factory;
-    }
-
-    @Bean
-    public HibernateExceptionTranslator hibernateExceptionTranslator() {
-        return new HibernateExceptionTranslator();
     }
 
     @Bean
