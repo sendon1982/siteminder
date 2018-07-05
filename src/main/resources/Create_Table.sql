@@ -40,6 +40,8 @@ CREATE TABLE `broker_buy_summary`
     ts_date				date
 );
 
+ALTER TABLE `broker_buy_summary` ADD UNIQUE `broker_buy_summary_uni_index`(`broker_code`, `ts_date`);
+
 CREATE TABLE `broker_buy_stock_info`
 (
     id					    bigint primary key AUTO_INCREMENT,

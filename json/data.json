@@ -1,0 +1,17 @@
+{
+  "Message": "",
+  "Status": 0,
+  "Data": [
+    {
+      "TableName": "RptLhbYybXQSumMap",
+      "TotalPage": 1,
+      "ConsumeMSecond": 94,
+      "SplitSymbol": "|",
+      "FieldName": "SName,YybCode,YybName,Smoney,Bmoney,JmMoney,YybBCount,YybSCount,TDate",
+      "Data": [
+        "[{\"CodeName\":\"珀莱雅\",\"SCode\":\"603605.SH\"}]|80052395|中国国际金融股份有限公司上海黄浦区湖滨路证券营业部||50535992.38|50535992.38|1|0|2018-06-29",
+        "[{\"CodeName\":\"珀莱雅\",\"SCode\":\"603605.SH\"}]|80052395|中国国际金融股份有限公司上海黄浦区湖滨路证券营业部||50535992.38|50535992.38|1|0|2018-07-10"
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
 # How to test the App
 
 1. App will run at http://localhost:8080/
-2. Use Postman to make POST to http://localhost:8080/rest/email/send with the following body
+2. Use Postman to make POST to `http://localhost:8080/broker/purchaseSummary` with the following body
 
 ```
 {

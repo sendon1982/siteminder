@@ -30,9 +30,9 @@ public class BrokerDataRestController {
     public ResponseEntity<Void> postPurchaseSummary(@RequestBody BrokerBuyRequest request) throws Exception {
         BrokerBuyResponseData brokerBuyResponseData = request.getStockResponseDataList().get(0);
         List<BrokerPlacedOrder> brokerPlacedOrderList = brokerBuyResponseData.getBrokerPlacedOrderList();
-        brokerService.insertBrokerPlacedOrders(brokerPlacedOrderList);
+        int count = brokerService.insertBrokerPlacedOrders(brokerPlacedOrderList);
 
-        logger.info("Totally {} records have been imported", brokerPlacedOrderList.size());
+        logger.info("Totally {} records have been imported", count);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
