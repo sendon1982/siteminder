@@ -33,7 +33,7 @@ curl -vX POST "http://localhost:8080/broker/purchaseSummary" -d @data.json --hea
 
 # How to test the App for stock data
 
-1. Use Postman to make POST to `http://localhost:8080/broker/purchaseSummary` with the following body
+1. Use Postman to make POST to `http://localhost:8080/stock/tradeHistory` with the following body
 
 ```
 [
