@@ -14,7 +14,7 @@ public class StockTradeHistory {
     private LocalDate startdate;
 
     @JsonProperty("stock_table_id")
-    private Integer stockTableId;
+    private Long stockTableId;
 
     @JsonProperty("date")
     private LocalDate date;
@@ -50,11 +50,11 @@ public class StockTradeHistory {
         this.startdate = startdate;
     }
 
-    public Integer getStockTableId() {
+    public Long getStockTableId() {
         return stockTableId;
     }
 
-    public void setStockTableId(Integer stockTableId) {
+    public void setStockTableId(Long stockTableId) {
         this.stockTableId = stockTableId;
     }
 

@@ -12,10 +12,7 @@ import static com.mjiang.email.jooq.domain.Tables.BROKER_BUY_STOCK_INFO;
 import static com.mjiang.email.jooq.domain.Tables.BROKER_BUY_SUMMARY;
 
 @Repository
-public class BrokerRepository {
-
-    @Autowired
-    private DSLContext context;
+public class BrokerRepository extends BaseRepository {
 
     public long insertBrokerBuySummary(BrokerPlacedOrder brokerPlacedOrder) {
 

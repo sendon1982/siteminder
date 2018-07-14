@@ -2,27 +2,19 @@ package com.mjiang.email.dao.repository;
 
 import java.math.BigDecimal;
 
-import com.mjiang.email.config.JpaConfig;
 import com.mjiang.email.model.BrokerPlacedOrder;
 import org.joda.time.LocalDate;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.notNullValue;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { JpaConfig.class })
-@TestPropertySource(value = {"classpath:application.test.properties"})
 @Tag("ManualTest")
 @Ignore
-class BrokerRepositoryTest {
+class BrokerRepositoryTest extends BaseRepositoryTest {
 
     @Autowired
     BrokerRepository brokerRepository;

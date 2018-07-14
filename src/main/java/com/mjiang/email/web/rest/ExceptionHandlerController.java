@@ -31,7 +31,7 @@ public class ExceptionHandlerController {
     @ResponseBody
     public ResponseEntity<ValidationError> processValidationError(HttpMessageNotReadableException ex) {
         ValidationError validationError = new ValidationError();
-        validationError.getFieldErrors().add(new FieldError("Http payload", "payload is not valid json for EmailRequest"));
+        validationError.getFieldErrors().add(new FieldError("Http payload", "payload is not valid json"));
         return new ResponseEntity<>(validationError, HttpStatus.BAD_REQUEST);
     }
     
