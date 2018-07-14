@@ -7,6 +7,8 @@ package com.mjiang.email.jooq.domain;
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
+import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +34,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tushare extends SchemaImpl {
 
-    private static final long serialVersionUID = 1492116487;
+    private static final long serialVersionUID = -435230779;
 
     /**
      * The reference instance of <code>tushare</code>
@@ -53,6 +55,16 @@ public class Tushare extends SchemaImpl {
      * The table <code>tushare.dragon_tiger_stock</code>.
      */
     public final DragonTigerStock DRAGON_TIGER_STOCK = com.mjiang.email.jooq.domain.tables.DragonTigerStock.DRAGON_TIGER_STOCK;
+
+    /**
+     * The table <code>tushare.public_holiday</code>.
+     */
+    public final PublicHoliday PUBLIC_HOLIDAY = com.mjiang.email.jooq.domain.tables.PublicHoliday.PUBLIC_HOLIDAY;
+
+    /**
+     * The table <code>tushare.stock_trade_history_info</code>.
+     */
+    public final StockTradeHistoryInfo STOCK_TRADE_HISTORY_INFO = com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO;
 
     /**
      * No further instances allowed
@@ -81,6 +93,8 @@ public class Tushare extends SchemaImpl {
         return Arrays.<Table<?>>asList(
             BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO,
             BrokerBuySummary.BROKER_BUY_SUMMARY,
-            DragonTigerStock.DRAGON_TIGER_STOCK);
+            DragonTigerStock.DRAGON_TIGER_STOCK,
+            PublicHoliday.PUBLIC_HOLIDAY,
+            StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO);
     }
 }

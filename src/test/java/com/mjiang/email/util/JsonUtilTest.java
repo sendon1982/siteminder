@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.mjiang.email.model.BrokerBuyResponse;
 import com.mjiang.email.model.BrokerBuyResponseData;
 import com.mjiang.email.model.BrokerPlacedOrder;
+import com.mjiang.email.model.StockTradeHistory;
 import org.junit.jupiter.api.Test;
 
 
@@ -41,5 +42,20 @@ class JsonUtilTest {
             json, new TypeReference<List<BrokerPlacedOrder.StockSummary>>() {});
 
         assertThat(stockSummaries.size(), equalTo(2));
+    }
+
+    @Test
+    void test_convertToObject_StockTradeHistory() throws Exception {
+        String jsonString = FileUtil.readFileByClasspath("stock_trade_history.json");
+        List<List<StockTradeHistory>> resultList = JsonUtil.convertToObject(
+            jsonString, new TypeReference<List<List<StockTradeHistory>>>() {});
+        assertThat(resultList.size(), equalTo(2));
+
+        List<StockTradeHistory> stockTradeHistories = resultList.get(0);
+        assertThat(stockTradeHistories, notNullValue());
+
+        StockTradeHistory stockTradeHistory = stockTradeHistories.get(0);
+        assertThat(stockTradeHistory, notNullValue());
+        assertThat(stockTradeHistory.getCode(), equalTo("002927"));
     }
 }

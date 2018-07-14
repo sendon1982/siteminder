@@ -22,11 +22,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-
-        <db.jdbc.driver>com.mysql.jdbc.Driver</db.jdbc.driver>
-        <db.jdbc.url>jdbc:mysql://localhost:3306/tushare?autoReconnect=true</db.jdbc.url>
-        <db.jdbc.username>sendon1982</db.jdbc.username>
-        <db.jdbc.password>Project@169</db.jdbc.password>
     </properties>
 
     <dependencies>
@@ -103,6 +98,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-joda</artifactId>
+            <version>2.9.5</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -135,6 +136,26 @@
 
     <build>
         <plugins>
+
+            <!-- Read configuration data from a resource file -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>src/main/resources/application.properties</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -183,10 +204,10 @@
                         <configuration>
                             <!-- JDBC connection parameters -->
                             <jdbc>
-                                <driver>${db.jdbc.driver}</driver>
-                                <url>${db.jdbc.url}</url>
-                                <user>${db.jdbc.username}</user>
-                                <password>${db.jdbc.password}</password>
+                                <driver>${spring.datasource.driver-class-name}</driver>
+                                <url>${spring.datasource.url}</url>
+                                <user>${spring.datasource.username}</user>
+                                <password>${spring.datasource.password}</password>
                             </jdbc>
 
                             <!-- Generator parameters -->

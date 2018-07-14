@@ -7,6 +7,8 @@ package com.mjiang.email.jooq.domain;
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
+import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 
 import javax.annotation.Generated;
 
@@ -33,9 +35,12 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     public static final Index BROKER_BUY_STOCK_INFO_PRIMARY = Indexes0.BROKER_BUY_STOCK_INFO_PRIMARY;
+    public static final Index BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX = Indexes0.BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX;
     public static final Index BROKER_BUY_SUMMARY_PRIMARY = Indexes0.BROKER_BUY_SUMMARY_PRIMARY;
     public static final Index DRAGON_TIGER_STOCK_PRIMARY = Indexes0.DRAGON_TIGER_STOCK_PRIMARY;
     public static final Index DRAGON_TIGER_STOCK_UNIQUE_INDEX = Indexes0.DRAGON_TIGER_STOCK_UNIQUE_INDEX;
+    public static final Index PUBLIC_HOLIDAY_PRIMARY = Indexes0.PUBLIC_HOLIDAY_PRIMARY;
+    public static final Index STOCK_TRADE_HISTORY_INFO_PRIMARY = Indexes0.STOCK_TRADE_HISTORY_INFO_PRIMARY;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -43,8 +48,11 @@ public class Indexes {
 
     private static class Indexes0 {
         public static Index BROKER_BUY_STOCK_INFO_PRIMARY = Internal.createIndex("PRIMARY", BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO, new OrderField[] { BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO.ID }, true);
+        public static Index BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX = Internal.createIndex("broker_buy_summary_uni_index", BrokerBuySummary.BROKER_BUY_SUMMARY, new OrderField[] { BrokerBuySummary.BROKER_BUY_SUMMARY.BROKER_CODE, BrokerBuySummary.BROKER_BUY_SUMMARY.TS_DATE }, true);
         public static Index BROKER_BUY_SUMMARY_PRIMARY = Internal.createIndex("PRIMARY", BrokerBuySummary.BROKER_BUY_SUMMARY, new OrderField[] { BrokerBuySummary.BROKER_BUY_SUMMARY.ID }, true);
         public static Index DRAGON_TIGER_STOCK_PRIMARY = Internal.createIndex("PRIMARY", DragonTigerStock.DRAGON_TIGER_STOCK, new OrderField[] { DragonTigerStock.DRAGON_TIGER_STOCK.ID }, true);
         public static Index DRAGON_TIGER_STOCK_UNIQUE_INDEX = Internal.createIndex("unique_index", DragonTigerStock.DRAGON_TIGER_STOCK, new OrderField[] { DragonTigerStock.DRAGON_TIGER_STOCK.CODE, DragonTigerStock.DRAGON_TIGER_STOCK.TS_DATE, DragonTigerStock.DRAGON_TIGER_STOCK.BROKER, DragonTigerStock.DRAGON_TIGER_STOCK.REASON }, true);
+        public static Index PUBLIC_HOLIDAY_PRIMARY = Internal.createIndex("PRIMARY", PublicHoliday.PUBLIC_HOLIDAY, new OrderField[] { PublicHoliday.PUBLIC_HOLIDAY.ID }, true);
+        public static Index STOCK_TRADE_HISTORY_INFO_PRIMARY = Internal.createIndex("PRIMARY", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, new OrderField[] { StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID }, true);
     }
 }

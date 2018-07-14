@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BrokerBuySummary extends TableImpl<BrokerBuySummaryRecord> {
 
-    private static final long serialVersionUID = -1939922077;
+    private static final long serialVersionUID = -1330580319;
 
     /**
      * The reference instance of <code>tushare.broker_buy_summary</code>
@@ -143,7 +143,7 @@ public class BrokerBuySummary extends TableImpl<BrokerBuySummaryRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BROKER_BUY_SUMMARY_PRIMARY);
+        return Arrays.<Index>asList(Indexes.BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX, Indexes.BROKER_BUY_SUMMARY_PRIMARY);
     }
 
     /**
@@ -167,7 +167,7 @@ public class BrokerBuySummary extends TableImpl<BrokerBuySummaryRecord> {
      */
     @Override
     public List<UniqueKey<BrokerBuySummaryRecord>> getKeys() {
-        return Arrays.<UniqueKey<BrokerBuySummaryRecord>>asList(Keys.KEY_BROKER_BUY_SUMMARY_PRIMARY);
+        return Arrays.<UniqueKey<BrokerBuySummaryRecord>>asList(Keys.KEY_BROKER_BUY_SUMMARY_PRIMARY, Keys.KEY_BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX);
     }
 
     /**

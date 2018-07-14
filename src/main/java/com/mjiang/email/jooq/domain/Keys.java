@@ -7,9 +7,13 @@ package com.mjiang.email.jooq.domain;
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
+import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 import com.mjiang.email.jooq.domain.tables.records.BrokerBuyStockInfoRecord;
 import com.mjiang.email.jooq.domain.tables.records.BrokerBuySummaryRecord;
 import com.mjiang.email.jooq.domain.tables.records.DragonTigerStockRecord;
+import com.mjiang.email.jooq.domain.tables.records.PublicHolidayRecord;
+import com.mjiang.email.jooq.domain.tables.records.StockTradeHistoryInfoRecord;
 
 import javax.annotation.Generated;
 
@@ -39,6 +43,8 @@ public class Keys {
     public static final Identity<BrokerBuyStockInfoRecord, Long> IDENTITY_BROKER_BUY_STOCK_INFO = Identities0.IDENTITY_BROKER_BUY_STOCK_INFO;
     public static final Identity<BrokerBuySummaryRecord, Long> IDENTITY_BROKER_BUY_SUMMARY = Identities0.IDENTITY_BROKER_BUY_SUMMARY;
     public static final Identity<DragonTigerStockRecord, Long> IDENTITY_DRAGON_TIGER_STOCK = Identities0.IDENTITY_DRAGON_TIGER_STOCK;
+    public static final Identity<PublicHolidayRecord, Long> IDENTITY_PUBLIC_HOLIDAY = Identities0.IDENTITY_PUBLIC_HOLIDAY;
+    public static final Identity<StockTradeHistoryInfoRecord, Long> IDENTITY_STOCK_TRADE_HISTORY_INFO = Identities0.IDENTITY_STOCK_TRADE_HISTORY_INFO;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
@@ -46,8 +52,11 @@ public class Keys {
 
     public static final UniqueKey<BrokerBuyStockInfoRecord> KEY_BROKER_BUY_STOCK_INFO_PRIMARY = UniqueKeys0.KEY_BROKER_BUY_STOCK_INFO_PRIMARY;
     public static final UniqueKey<BrokerBuySummaryRecord> KEY_BROKER_BUY_SUMMARY_PRIMARY = UniqueKeys0.KEY_BROKER_BUY_SUMMARY_PRIMARY;
+    public static final UniqueKey<BrokerBuySummaryRecord> KEY_BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX = UniqueKeys0.KEY_BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX;
     public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_PRIMARY = UniqueKeys0.KEY_DRAGON_TIGER_STOCK_PRIMARY;
     public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX = UniqueKeys0.KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX;
+    public static final UniqueKey<PublicHolidayRecord> KEY_PUBLIC_HOLIDAY_PRIMARY = UniqueKeys0.KEY_PUBLIC_HOLIDAY_PRIMARY;
+    public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY = UniqueKeys0.KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -62,12 +71,17 @@ public class Keys {
         public static Identity<BrokerBuyStockInfoRecord, Long> IDENTITY_BROKER_BUY_STOCK_INFO = Internal.createIdentity(BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO, BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO.ID);
         public static Identity<BrokerBuySummaryRecord, Long> IDENTITY_BROKER_BUY_SUMMARY = Internal.createIdentity(BrokerBuySummary.BROKER_BUY_SUMMARY, BrokerBuySummary.BROKER_BUY_SUMMARY.ID);
         public static Identity<DragonTigerStockRecord, Long> IDENTITY_DRAGON_TIGER_STOCK = Internal.createIdentity(DragonTigerStock.DRAGON_TIGER_STOCK, DragonTigerStock.DRAGON_TIGER_STOCK.ID);
+        public static Identity<PublicHolidayRecord, Long> IDENTITY_PUBLIC_HOLIDAY = Internal.createIdentity(PublicHoliday.PUBLIC_HOLIDAY, PublicHoliday.PUBLIC_HOLIDAY.ID);
+        public static Identity<StockTradeHistoryInfoRecord, Long> IDENTITY_STOCK_TRADE_HISTORY_INFO = Internal.createIdentity(StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID);
     }
 
     private static class UniqueKeys0 {
         public static final UniqueKey<BrokerBuyStockInfoRecord> KEY_BROKER_BUY_STOCK_INFO_PRIMARY = Internal.createUniqueKey(BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO, "KEY_broker_buy_stock_info_PRIMARY", BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO.ID);
         public static final UniqueKey<BrokerBuySummaryRecord> KEY_BROKER_BUY_SUMMARY_PRIMARY = Internal.createUniqueKey(BrokerBuySummary.BROKER_BUY_SUMMARY, "KEY_broker_buy_summary_PRIMARY", BrokerBuySummary.BROKER_BUY_SUMMARY.ID);
+        public static final UniqueKey<BrokerBuySummaryRecord> KEY_BROKER_BUY_SUMMARY_BROKER_BUY_SUMMARY_UNI_INDEX = Internal.createUniqueKey(BrokerBuySummary.BROKER_BUY_SUMMARY, "KEY_broker_buy_summary_broker_buy_summary_uni_index", BrokerBuySummary.BROKER_BUY_SUMMARY.BROKER_CODE, BrokerBuySummary.BROKER_BUY_SUMMARY.TS_DATE);
         public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_PRIMARY = Internal.createUniqueKey(DragonTigerStock.DRAGON_TIGER_STOCK, "KEY_dragon_tiger_stock_PRIMARY", DragonTigerStock.DRAGON_TIGER_STOCK.ID);
         public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX = Internal.createUniqueKey(DragonTigerStock.DRAGON_TIGER_STOCK, "KEY_dragon_tiger_stock_unique_index", DragonTigerStock.DRAGON_TIGER_STOCK.CODE, DragonTigerStock.DRAGON_TIGER_STOCK.TS_DATE, DragonTigerStock.DRAGON_TIGER_STOCK.BROKER, DragonTigerStock.DRAGON_TIGER_STOCK.REASON);
+        public static final UniqueKey<PublicHolidayRecord> KEY_PUBLIC_HOLIDAY_PRIMARY = Internal.createUniqueKey(PublicHoliday.PUBLIC_HOLIDAY, "KEY_public_holiday_PRIMARY", PublicHoliday.PUBLIC_HOLIDAY.ID);
+        public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY = Internal.createUniqueKey(StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, "KEY_stock_trade_history_info_PRIMARY", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID);
     }
 }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.joda.JodaModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
@@ -20,6 +21,7 @@ public class JsonUtil {
     static {
         objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        objectMapper.registerModule(new JodaModule());
     }
 
     public static String convertToString(Object object) {
@@ -39,9 +41,7 @@ public class JsonUtil {
      *
      * @param json
      *
-     * @param type
-     *
-     * @param <T>
+     * @param <T> clazz
      *
      * @return
      */

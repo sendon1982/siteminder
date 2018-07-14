@@ -7,6 +7,8 @@ package com.mjiang.email.jooq.domain;
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
+import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 
 import javax.annotation.Generated;
 
@@ -38,4 +40,14 @@ public class Tables {
      * The table <code>tushare.dragon_tiger_stock</code>.
      */
     public static final DragonTigerStock DRAGON_TIGER_STOCK = com.mjiang.email.jooq.domain.tables.DragonTigerStock.DRAGON_TIGER_STOCK;
+
+    /**
+     * The table <code>tushare.public_holiday</code>.
+     */
+    public static final PublicHoliday PUBLIC_HOLIDAY = com.mjiang.email.jooq.domain.tables.PublicHoliday.PUBLIC_HOLIDAY;
+
+    /**
+     * The table <code>tushare.stock_trade_history_info</code>.
+     */
+    public static final StockTradeHistoryInfo STOCK_TRADE_HISTORY_INFO = com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO;
 }

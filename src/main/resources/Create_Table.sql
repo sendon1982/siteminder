@@ -50,4 +50,29 @@ CREATE TABLE `broker_buy_stock_info`
     stock_name				varchar(100)
 );
 
+CREATE TABLE `stock_trade_history_info`
+(
+    id					    bigint primary key AUTO_INCREMENT,
+    broker_buy_stock_id     bigint,
+    stock_code              varchar(20),
+    start_date				date,
+    ts_date				    date,
+    open_price              decimal(15,2),
+    close_price             decimal(15,2),
+    high_price              decimal(15,2),
+    low_price               decimal(15,2),
+    volume                  decimal(30,2)
+);
+
+CREATE TABLE `public_holiday`
+(
+        id					bigint primary key AUTO_INCREMENT,
+        ts_date             date,
+        is_public_holiday   boolean,
+        name                varchar(100),
+        description         varchar(500),
+        create_ts           timestamp
+);
+
+
 
