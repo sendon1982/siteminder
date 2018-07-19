@@ -36,56 +36,32 @@ curl -vX POST "http://localhost:8080/broker/purchaseSummary" -d @data.json --hea
 1. Use Postman to make POST to `http://localhost:8080/stock/tradeHistory` with the following body
 
 ```
-[
-  [
-    {
-      "code": "002927",
-      "startdate": "2018-07-06",
-      "stock_table_id": 90848,
-      "date": "2018-07-06",
-      "open": 39.0,
-      "close": 39.18,
-      "high": 39.18,
-      "low": 39.0,
-      "volume": 41663.0
-    },
-    {
-      "code": "002927",
-      "startdate": "2018-07-06",
-      "stock_table_id": 90848,
-      "date": "2018-07-09",
-      "open": 41.0,
-      "close": 40.85,
-      "high": 43.1,
-      "low": 40.14,
-      "volume": 151809.0
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "sh600000": {
+      "qfqday": [
+        [
+          "2017-01-03",
+          "12.184",
+          "12.251",
+          "12.356",
+          "12.153",
+          "162371.000"
+        ],
+        [
+          "2017-01-04",
+          "12.244",
+          "12.274",
+          "12.289",
+          "12.161",
+          "296587.000"
+        ]
+      ]
     }
-  ],
-  [
-    {
-      "code": "600532",
-      "startdate": "2018-07-06",
-      "stock_table_id": 88508,
-      "date": "2018-07-11",
-      "open": 3.75,
-      "close": 4.42,
-      "high": 4.42,
-      "low": 3.68,
-      "volume": 614071.0
-    },
-    {
-      "code": "600532",
-      "startdate": "2018-07-06",
-      "stock_table_id": 88508,
-      "date": "2018-07-12",
-      "open": 4.56,
-      "close": 4.86,
-      "high": 4.86,
-      "low": 4.56,
-      "volume": 643016.0
-    }
-  ]
-]
+  }
+}
 ```
 
 2. Use `curl` to inert data into DB for stock trade history `data.json` where the json file on current path

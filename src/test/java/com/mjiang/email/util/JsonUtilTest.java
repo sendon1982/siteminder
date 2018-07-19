@@ -1,14 +1,19 @@
 package com.mjiang.email.util;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.mjiang.email.model.BrokerBuyResponse;
 import com.mjiang.email.model.BrokerBuyResponseData;
 import com.mjiang.email.model.BrokerPlacedOrder;
+import com.mjiang.email.model.StockTradeData;
 import com.mjiang.email.model.StockTradeHistory;
+import org.joda.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 
@@ -47,15 +52,34 @@ class JsonUtilTest {
     @Test
     void test_convertToObject_StockTradeHistory() throws Exception {
         String jsonString = FileUtil.readFileByClasspath("stock_trade_history.json");
-        List<List<StockTradeHistory>> resultList = JsonUtil.convertToObject(
-            jsonString, new TypeReference<List<List<StockTradeHistory>>>() {});
-        assertThat(resultList.size(), equalTo(2));
 
-        List<StockTradeHistory> stockTradeHistories = resultList.get(0);
-        assertThat(stockTradeHistories, notNullValue());
+        Map<String, Object> resultMap = JsonUtil.convertToMap(jsonString);
+        assertThat(resultMap, notNullValue());
 
-        StockTradeHistory stockTradeHistory = stockTradeHistories.get(0);
-        assertThat(stockTradeHistory, notNullValue());
-        assertThat(stockTradeHistory.getCode(), equalTo("002927"));
+        List<StockTradeData> stockTradeDataList = StockTradeHistoryUtil.convertToStockTradeData(resultMap);
+        assertThat(stockTradeDataList.size(), equalTo(2));
+
+        assertThat(stockTradeDataList, allOf(
+            containsInAnyOrder(
+                allOf(
+                    hasProperty("code", equalTo("sh600000")),
+                    hasProperty("date", equalTo(LocalDate.parse("2017-01-03"))),
+                    hasProperty("openPrice", equalTo(BigDecimal.valueOf(12.184))),
+                    hasProperty("closePrice", equalTo(BigDecimal.valueOf(12.251))),
+                    hasProperty("highPrice", equalTo(BigDecimal.valueOf(12.356))),
+                    hasProperty("lowPrice", equalTo(BigDecimal.valueOf(12.153))),
+                    hasProperty("volume", equalTo(BigDecimal.valueOf(162371.000)))
+                ),
+                allOf(
+                    hasProperty("code", equalTo("sh600000")),
+                    hasProperty("date", equalTo(LocalDate.parse("2017-01-04"))),
+                    hasProperty("openPrice", equalTo(BigDecimal.valueOf(12.244))),
+                    hasProperty("closePrice", equalTo(BigDecimal.valueOf(12.274))),
+                    hasProperty("highPrice", equalTo(BigDecimal.valueOf(12.289))),
+                    hasProperty("lowPrice", equalTo(BigDecimal.valueOf(12.161))),
+                    hasProperty("volume", equalTo(BigDecimal.valueOf(296587.000)))
+                )
+            ))
+        );
     }
 }

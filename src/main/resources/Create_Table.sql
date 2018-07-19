@@ -53,9 +53,7 @@ CREATE TABLE `broker_buy_stock_info`
 CREATE TABLE `stock_trade_history_info`
 (
     id					    bigint primary key AUTO_INCREMENT,
-    broker_buy_stock_id     bigint,
     stock_code              varchar(20),
-    start_date				date,
     ts_date				    date,
     open_price              decimal(15,2),
     close_price             decimal(15,2),

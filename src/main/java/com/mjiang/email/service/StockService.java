@@ -2,15 +2,8 @@ package com.mjiang.email.service;
 
 import java.util.List;
 
-import com.mjiang.email.dao.repository.BrokerRepository;
 import com.mjiang.email.dao.repository.StockRepository;
-import com.mjiang.email.model.BrokerBuyResponse;
-import com.mjiang.email.model.BrokerBuyResponseData;
-import com.mjiang.email.model.BrokerPlacedOrder;
-import com.mjiang.email.model.BrokerPlacedOrder.StockSummary;
-import com.mjiang.email.model.StockTradeHistory;
-import com.mjiang.email.util.FileUtil;
-import com.mjiang.email.util.JsonUtil;
+import com.mjiang.email.model.StockTradeData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,22 +20,22 @@ public class StockService {
     private StockRepository stockRepository;
 
     @Transactional
-    public int insertStockTradeHistory(List<StockTradeHistory> stockTradeHistories) {
+    public int insertStockTradeHistory(List<StockTradeData> stockTradeDataList) {
         int count = 0;
 
-        for (StockTradeHistory stockTradeHistory : stockTradeHistories) {
-            count = count + this.insertStockTradeHistory(stockTradeHistory);
+        for (StockTradeData stockTradeData : stockTradeDataList) {
+            count = count + this.insertStockTradeHistory(stockTradeData);
         }
 
         return count;
     }
 
     @Transactional
-    public int insertStockTradeHistory(StockTradeHistory stockTradeHistory) {
+    public int insertStockTradeHistory(StockTradeData stockTradeData) {
         int count = 0;
 
         try {
-            stockRepository.insertStockTradeHistory(stockTradeHistory);
+            stockRepository.insertStockTradeHistory(stockTradeData);
             count++;
         } catch (DuplicateKeyException e) {
             log.warn(e.getMessage());

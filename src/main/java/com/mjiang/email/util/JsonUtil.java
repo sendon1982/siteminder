@@ -1,6 +1,8 @@
 package com.mjiang.email.util;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -86,5 +88,18 @@ public class JsonUtil {
         }
 
         return result;
+    }
+
+    public static Map<String, Object> convertToMap(String json) {
+        Map<String, Object> map = new HashMap<>();
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            map = mapper.readValue(json, new TypeReference<HashMap<String, Object>>() {});
+        } catch (IOException e) {
+            logger.warn("Failed to convert Map<String, String> to json string {}", json);
+        }
+
+        return map;
     }
 }

@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class StockTradeHistoryInfo extends TableImpl<StockTradeHistoryInfoRecord> {
 
-    private static final long serialVersionUID = 317445850;
+    private static final long serialVersionUID = 1647268003;
 
     /**
      * The reference instance of <code>tushare.stock_trade_history_info</code>
@@ -62,19 +62,9 @@ public class StockTradeHistoryInfo extends TableImpl<StockTradeHistoryInfoRecord
     public final TableField<StockTradeHistoryInfoRecord, Long> ID = createField("id", org.jooq.impl.SQLDataType.BIGINT.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>tushare.stock_trade_history_info.broker_buy_stock_id</code>.
-     */
-    public final TableField<StockTradeHistoryInfoRecord, Long> BROKER_BUY_STOCK_ID = createField("broker_buy_stock_id", org.jooq.impl.SQLDataType.BIGINT, this, "");
-
-    /**
      * The column <code>tushare.stock_trade_history_info.stock_code</code>.
      */
     public final TableField<StockTradeHistoryInfoRecord, String> STOCK_CODE = createField("stock_code", org.jooq.impl.SQLDataType.VARCHAR(20), this, "");
-
-    /**
-     * The column <code>tushare.stock_trade_history_info.start_date</code>.
-     */
-    public final TableField<StockTradeHistoryInfoRecord, Date> START_DATE = createField("start_date", org.jooq.impl.SQLDataType.DATE, this, "");
 
     /**
      * The column <code>tushare.stock_trade_history_info.ts_date</code>.
