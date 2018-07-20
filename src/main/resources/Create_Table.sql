@@ -62,6 +62,8 @@ CREATE TABLE `stock_trade_history_info`
     volume                  decimal(30,2)
 );
 
+ALTER TABLE `stock_trade_history_info` ADD UNIQUE `stock_trade_history_uni_index`(`stock_code`, `ts_date`);
+
 CREATE TABLE `public_holiday`
 (
         id					bigint primary key AUTO_INCREMENT,
@@ -71,6 +73,4 @@ CREATE TABLE `public_holiday`
         description         varchar(500),
         create_ts           timestamp
 );
-
-
 
