@@ -1,28 +1,25 @@
 package com.mjiang.email.util;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.mjiang.email.model.BrokerBuyResponse;
 import com.mjiang.email.model.BrokerBuyResponseData;
 import com.mjiang.email.model.BrokerPlacedOrder;
+import com.mjiang.email.model.MashDatum;
+import com.mjiang.email.model.StockDetailInfo;
 import com.mjiang.email.model.StockTradeData;
-import com.mjiang.email.model.StockTradeHistory;
 import org.joda.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.notNullValue;
 
 class JsonUtilTest {
 
@@ -81,5 +78,24 @@ class JsonUtilTest {
                 )
             ))
         );
+    }
+
+    @Test
+    void test_convertToObject_NewStockInfo() throws Exception {
+        String jsonString = FileUtil.readFileByClasspath("new_stock_info.json");
+
+        StockDetailInfo stockDetailInfo = JsonUtil.convertToObject(jsonString, StockDetailInfo.class);
+        assertThat(stockDetailInfo, notNullValue());
+
+        assertThat(stockDetailInfo.getErrorNo(), equalTo(0));
+        assertThat(stockDetailInfo.getErrorMsg(), equalTo("SUCCESS"));
+        assertThat(stockDetailInfo.getStockCode(), equalTo("600000"));
+        assertThat(stockDetailInfo.getMashData().size(), equalTo(2));
+
+        MashDatum mashDatum = stockDetailInfo.getMashData().get(0);
+        assertThat(mashDatum.getDate(), equalTo(LocalDate.parse("2017-01-04")));
+        assertThat(mashDatum.getKline().getOpen().doubleValue(), equalTo(12.060000419617));
+        assertThat(mashDatum.getKline().getHigh().doubleValue(), equalTo(12.199999809265));
+        assertThat(mashDatum.getKline().getCcl(), equalTo("0"));
     }
 }

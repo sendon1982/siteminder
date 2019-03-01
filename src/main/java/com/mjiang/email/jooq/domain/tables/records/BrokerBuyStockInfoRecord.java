@@ -4,10 +4,9 @@
 package com.mjiang.email.jooq.domain.tables.records;
 
 
-import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
-
 import javax.annotation.Generated;
 
+import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record4;

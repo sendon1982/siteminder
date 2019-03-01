@@ -4,18 +4,16 @@
 package com.mjiang.email.jooq.domain.tables;
 
 
-import com.mjiang.email.jooq.domain.Indexes;
-import com.mjiang.email.jooq.domain.Keys;
-import com.mjiang.email.jooq.domain.Tushare;
-import com.mjiang.email.jooq.domain.tables.records.StockTradeHistoryInfoRecord;
-
+import javax.annotation.Generated;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.Generated;
-
+import com.mjiang.email.jooq.domain.Indexes;
+import com.mjiang.email.jooq.domain.Keys;
+import com.mjiang.email.jooq.domain.Tushare;
+import com.mjiang.email.jooq.domain.tables.records.StockTradeHistoryInfoRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Index;
@@ -41,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class StockTradeHistoryInfo extends TableImpl<StockTradeHistoryInfoRecord> {
 
-    private static final long serialVersionUID = 1647268003;
+    private static final long serialVersionUID = -2117622171;
 
     /**
      * The reference instance of <code>tushare.stock_trade_history_info</code>
@@ -138,7 +136,7 @@ public class StockTradeHistoryInfo extends TableImpl<StockTradeHistoryInfoRecord
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.STOCK_TRADE_HISTORY_INFO_PRIMARY);
+        return Arrays.<Index>asList(Indexes.STOCK_TRADE_HISTORY_INFO_PRIMARY, Indexes.STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX);
     }
 
     /**
@@ -162,7 +160,7 @@ public class StockTradeHistoryInfo extends TableImpl<StockTradeHistoryInfoRecord
      */
     @Override
     public List<UniqueKey<StockTradeHistoryInfoRecord>> getKeys() {
-        return Arrays.<UniqueKey<StockTradeHistoryInfoRecord>>asList(Keys.KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY);
+        return Arrays.<UniqueKey<StockTradeHistoryInfoRecord>>asList(Keys.KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY, Keys.KEY_STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX);
     }
 
     /**

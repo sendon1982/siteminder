@@ -4,13 +4,11 @@
 package com.mjiang.email.jooq.domain.tables.records;
 
 
-import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
-
+import javax.annotation.Generated;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-import javax.annotation.Generated;
-
+import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record8;

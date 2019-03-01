@@ -4,18 +4,16 @@
 package com.mjiang.email.jooq.domain.tables;
 
 
-import com.mjiang.email.jooq.domain.Indexes;
-import com.mjiang.email.jooq.domain.Keys;
-import com.mjiang.email.jooq.domain.Tushare;
-import com.mjiang.email.jooq.domain.tables.records.PublicHolidayRecord;
-
+import javax.annotation.Generated;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.Generated;
-
+import com.mjiang.email.jooq.domain.Indexes;
+import com.mjiang.email.jooq.domain.Keys;
+import com.mjiang.email.jooq.domain.Tushare;
+import com.mjiang.email.jooq.domain.tables.records.PublicHolidayRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Index;
@@ -84,7 +82,8 @@ public class PublicHoliday extends TableImpl<PublicHolidayRecord> {
     /**
      * The column <code>tushare.public_holiday.create_ts</code>.
      */
-    public final TableField<PublicHolidayRecord, Timestamp> CREATE_TS = createField("create_ts", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<PublicHolidayRecord, Timestamp> CREATE_TS = createField("create_ts", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(
+        DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
      * Create a <code>tushare.public_holiday</code> table reference

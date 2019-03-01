@@ -68,3 +68,18 @@ curl -vX POST "http://localhost:8080/broker/purchaseSummary" -d @data.json --hea
 ````
 curl -vX POST "http://localhost:8080/stock/tradeHistory" -d @data.json --header "Content-Type: application/json"
 ````
+
+3. Use `curl` to inert data into DB for stock info no `data.json` where the json file on current path
+````
+curl -vX POST "http://localhost:8080/stock/detail/no" -d @data.json --header "Content-Type: application/json"
+````
+
+4. Use `curl` to inert data into DB for stock info front `data.json` where the json file on current path
+````
+curl -vX POST "http://localhost:8080/stock/detail/front" -d @data.json --header "Content-Type: application/json"
+````
+
+5. Use `curl` to inert data into DB for stock info back `data.json` where the json file on current path
+````
+curl -vX POST "http://localhost:8080/stock/detail/back" -d @data.json --header "Content-Type: application/json"
+````

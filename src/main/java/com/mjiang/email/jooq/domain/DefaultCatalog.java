@@ -4,11 +4,10 @@
 package com.mjiang.email.jooq.domain;
 
 
+import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.annotation.Generated;
 
 import org.jooq.Schema;
 import org.jooq.impl.CatalogImpl;
@@ -37,7 +36,7 @@ public class DefaultCatalog extends CatalogImpl {
     /**
      * The schema <code>tushare</code>.
      */
-    public final Tushare TUSHARE = com.mjiang.email.jooq.domain.Tushare.TUSHARE;
+    public final Tushare TUSHARE = Tushare.TUSHARE;
 
     /**
      * No further instances allowed

@@ -4,18 +4,16 @@
 package com.mjiang.email.jooq.domain.tables;
 
 
-import com.mjiang.email.jooq.domain.Indexes;
-import com.mjiang.email.jooq.domain.Keys;
-import com.mjiang.email.jooq.domain.Tushare;
-import com.mjiang.email.jooq.domain.tables.records.DragonTigerStockRecord;
-
+import javax.annotation.Generated;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.Generated;
-
+import com.mjiang.email.jooq.domain.Indexes;
+import com.mjiang.email.jooq.domain.Keys;
+import com.mjiang.email.jooq.domain.Tushare;
+import com.mjiang.email.jooq.domain.tables.records.DragonTigerStockRecord;
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Index;
