@@ -35,10 +35,10 @@ public class Kline {
     private BigDecimal close;
 
     @JsonProperty("volume")
-    private Integer volume;
+    private Long volume;
 
     @JsonProperty("amount")
-    private Integer amount;
+    private Long amount;
 
     @JsonProperty("ccl")
     @JsonIgnore
@@ -91,22 +91,22 @@ public class Kline {
     }
 
     @JsonProperty("volume")
-    public Integer getVolume() {
+    public Long getVolume() {
         return volume;
     }
 
     @JsonProperty("volume")
-    public void setVolume(Integer volume) {
+    public void setVolume(Long volume) {
         this.volume = volume;
     }
 
     @JsonProperty("amount")
-    public Integer getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
     @JsonProperty("amount")
-    public void setAmount(Integer amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 
