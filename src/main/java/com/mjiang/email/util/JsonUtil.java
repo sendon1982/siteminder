@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -24,6 +25,7 @@ public class JsonUtil {
     static {
         objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.registerModule(new JodaModule());
     }
@@ -49,6 +51,7 @@ public class JsonUtil {
      *
      * @return
      */
+    @SuppressWarnings("all")
     public static <T> T convertToObject(String json, Class<T> clazz) {
         if (StringUtils.isEmpty(json)) {
             return null;
@@ -59,7 +62,7 @@ public class JsonUtil {
         try {
             result = objectMapper.readValue(json, clazz);
         } catch (IOException e) {
-            logger.warn("Failed to convert object to json string {}", json);
+            logger.error("Failed to convert object to json string", e);
         }
 
         return result;

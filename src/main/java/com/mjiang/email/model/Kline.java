@@ -3,6 +3,7 @@ package com.mjiang.email.model;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ public class Kline {
     private Integer amount;
 
     @JsonProperty("ccl")
+    @JsonIgnore
     private String ccl;
 
     @JsonProperty("preClose")

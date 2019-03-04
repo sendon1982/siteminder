@@ -98,4 +98,12 @@ class JsonUtilTest {
         assertThat(mashDatum.getKline().getHigh().doubleValue(), equalTo(12.199999809265));
         assertThat(mashDatum.getKline().getCcl(), equalTo("0"));
     }
+
+    @Test
+    void test_convertToObject_ErrorJson() throws Exception {
+        String jsonString = FileUtil.readFileByClasspath("errorResponse.json");
+
+        StockDetailInfo stockDetailInfo = JsonUtil.convertToObject(jsonString, StockDetailInfo.class);
+        assertThat(stockDetailInfo, notNullValue());
+    }
 }
