@@ -29,20 +29,20 @@ public class StockTradeHistoryUtil {
             String stockCode = entry.getKey();
             Map<String, Object> qfqDayMap = (Map<String, Object>) entry.getValue();
 
-            for (Object obj : qfqDayMap.values()) {
-                List<List<String>> stockDailyList = (List<List<String>>) obj;
+            Object obj = qfqDayMap.get("day");
 
-                for (List<String> stockDaily: stockDailyList) {
-                    StockTradeData stockTradeData = new StockTradeData();
-                    stockTradeData.setCode(stockCode);
-                    stockTradeData.setDate(LocalDate.parse(stockDaily.get(0)));
-                    stockTradeData.setOpenPrice(convertToBigDecimal(stockDaily.get(1)));
-                    stockTradeData.setClosePrice(convertToBigDecimal(stockDaily.get(2)));
-                    stockTradeData.setHighPrice(convertToBigDecimal(stockDaily.get(3)));
-                    stockTradeData.setLowPrice(convertToBigDecimal(stockDaily.get(4)));
-                    stockTradeData.setVolume(convertToBigDecimal(stockDaily.get(5)));
-                    stockTradeDataList.add(stockTradeData);
-                }
+            List<List<String>> stockDailyList = (List<List<String>>) obj;
+
+            for (List<String> stockDaily: stockDailyList) {
+                StockTradeData stockTradeData = new StockTradeData();
+                stockTradeData.setCode(stockCode);
+                stockTradeData.setDate(LocalDate.parse(stockDaily.get(0)));
+                stockTradeData.setOpenPrice(convertToBigDecimal(stockDaily.get(1)));
+                stockTradeData.setClosePrice(convertToBigDecimal(stockDaily.get(2)));
+                stockTradeData.setHighPrice(convertToBigDecimal(stockDaily.get(3)));
+                stockTradeData.setLowPrice(convertToBigDecimal(stockDaily.get(4)));
+                stockTradeData.setVolume(convertToBigDecimal(stockDaily.get(5)));
+                stockTradeDataList.add(stockTradeData);
             }
         }
 

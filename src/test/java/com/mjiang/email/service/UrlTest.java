@@ -2,7 +2,7 @@ package com.mjiang.email.service;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
@@ -62,10 +62,25 @@ public class UrlTest {
         Assert.assertThat(result, equalTo(expectedUrl));
     }
 
+    @Test
+    void test_forLoop() {
+        for (String s : getServiceList()) {
+            System.out.println(s);
+        }
+    }
+
     public String removeQueryParameters(String url) throws URISyntaxException {
         URIBuilder uriBuilder = new URIBuilder(url);
         uriBuilder.removeQuery();
 
         return uriBuilder.build().toString();
+    }
+
+    public List<String> getServiceList() {
+        System.out.println("times 1*1");
+        return Arrays.asList(
+            "bar",
+            "far"
+        );
     }
 }

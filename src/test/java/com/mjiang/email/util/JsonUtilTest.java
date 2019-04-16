@@ -36,6 +36,16 @@ class JsonUtilTest {
     }
 
     @Test
+    void test_convertToStockTradeData() throws Exception {
+        String jsonString = FileUtil.readFileByClasspath("test_final.json");
+        Map<String, Object> jsonMap = JsonUtil.convertToMap(jsonString);
+
+        List<StockTradeData> stockTradeData = StockTradeHistoryUtil.convertToStockTradeData(jsonMap);
+
+        assertThat(stockTradeData.size(), equalTo(41));
+    }
+
+    @Test
     void test_convertToObject_TypeReference() {
         String json = "[{\"CodeName\":\"浩丰科技\",\"SCode\":\"300419.SZ\"}," +
             "{\"CodeName\":\"中化岩土\",\"SCode\":\"002542.SZ\"}]";
