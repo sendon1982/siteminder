@@ -43,6 +43,7 @@ class JsonUtilTest {
         List<StockTradeData> stockTradeData = StockTradeHistoryUtil.convertToStockTradeData(jsonMap);
 
         assertThat(stockTradeData.size(), equalTo(41));
+        System.out.println(Void.class.getName());
     }
 
     @Test
