@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.retry.annotation.Retryable;
 
-@SpringBootApplication
+//@SpringBootApplication
 @Retryable
 public class MainAppRetry implements CommandLineRunner {
 
