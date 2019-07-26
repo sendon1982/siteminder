@@ -31,6 +31,10 @@ public class StockTradeHistoryUtil {
 
             Object obj = qfqDayMap.get("day");
 
+            if (obj == null) {
+                obj = qfqDayMap.get("qfqday");
+            }
+
             List<List<String>> stockDailyList = (List<List<String>>) obj;
 
             for (List<String> stockDaily: stockDailyList) {
