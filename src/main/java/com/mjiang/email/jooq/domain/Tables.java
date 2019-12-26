@@ -4,16 +4,18 @@
 package com.mjiang.email.jooq.domain;
 
 
-import javax.annotation.Generated;
-
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
 import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.SmartWatchRef;
 import com.mjiang.email.jooq.domain.tables.StockInfoBack;
 import com.mjiang.email.jooq.domain.tables.StockInfoFront;
 import com.mjiang.email.jooq.domain.tables.StockInfoNo;
+import com.mjiang.email.jooq.domain.tables.StockSmartWatch;
 import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
+
+import javax.annotation.Generated;
 
 
 /**
@@ -32,40 +34,50 @@ public class Tables {
     /**
      * The table <code>tushare.broker_buy_stock_info</code>.
      */
-    public static final BrokerBuyStockInfo BROKER_BUY_STOCK_INFO = BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO;
+    public static final BrokerBuyStockInfo BROKER_BUY_STOCK_INFO = com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo.BROKER_BUY_STOCK_INFO;
 
     /**
      * The table <code>tushare.broker_buy_summary</code>.
      */
-    public static final BrokerBuySummary BROKER_BUY_SUMMARY = BrokerBuySummary.BROKER_BUY_SUMMARY;
+    public static final BrokerBuySummary BROKER_BUY_SUMMARY = com.mjiang.email.jooq.domain.tables.BrokerBuySummary.BROKER_BUY_SUMMARY;
 
     /**
      * The table <code>tushare.dragon_tiger_stock</code>.
      */
-    public static final DragonTigerStock DRAGON_TIGER_STOCK = DragonTigerStock.DRAGON_TIGER_STOCK;
+    public static final DragonTigerStock DRAGON_TIGER_STOCK = com.mjiang.email.jooq.domain.tables.DragonTigerStock.DRAGON_TIGER_STOCK;
 
     /**
      * The table <code>tushare.public_holiday</code>.
      */
-    public static final PublicHoliday PUBLIC_HOLIDAY = PublicHoliday.PUBLIC_HOLIDAY;
+    public static final PublicHoliday PUBLIC_HOLIDAY = com.mjiang.email.jooq.domain.tables.PublicHoliday.PUBLIC_HOLIDAY;
+
+    /**
+     * The table <code>tushare.smart_watch_ref</code>.
+     */
+    public static final SmartWatchRef SMART_WATCH_REF = com.mjiang.email.jooq.domain.tables.SmartWatchRef.SMART_WATCH_REF;
 
     /**
      * The table <code>tushare.stock_info_back</code>.
      */
-    public static final StockInfoBack STOCK_INFO_BACK = StockInfoBack.STOCK_INFO_BACK;
+    public static final StockInfoBack STOCK_INFO_BACK = com.mjiang.email.jooq.domain.tables.StockInfoBack.STOCK_INFO_BACK;
 
     /**
      * The table <code>tushare.stock_info_front</code>.
      */
-    public static final StockInfoFront STOCK_INFO_FRONT = StockInfoFront.STOCK_INFO_FRONT;
+    public static final StockInfoFront STOCK_INFO_FRONT = com.mjiang.email.jooq.domain.tables.StockInfoFront.STOCK_INFO_FRONT;
 
     /**
      * The table <code>tushare.stock_info_no</code>.
      */
-    public static final StockInfoNo STOCK_INFO_NO = StockInfoNo.STOCK_INFO_NO;
+    public static final StockInfoNo STOCK_INFO_NO = com.mjiang.email.jooq.domain.tables.StockInfoNo.STOCK_INFO_NO;
+
+    /**
+     * The table <code>tushare.stock_smart_watch</code>.
+     */
+    public static final StockSmartWatch STOCK_SMART_WATCH = com.mjiang.email.jooq.domain.tables.StockSmartWatch.STOCK_SMART_WATCH;
 
     /**
      * The table <code>tushare.stock_trade_history_info</code>.
      */
-    public static final StockTradeHistoryInfo STOCK_TRADE_HISTORY_INFO = StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO;
+    public static final StockTradeHistoryInfo STOCK_TRADE_HISTORY_INFO = com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO;
 }

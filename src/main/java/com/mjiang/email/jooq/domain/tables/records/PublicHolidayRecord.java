@@ -4,11 +4,13 @@
 package com.mjiang.email.jooq.domain.tables.records;
 
 
-import javax.annotation.Generated;
+import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+
 import java.sql.Date;
 import java.sql.Timestamp;
 
-import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import javax.annotation.Generated;
+
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record6;

@@ -3,10 +3,12 @@ package com.mjiang.email.web.rest;
 import java.util.List;
 import java.util.Map;
 
+import com.mjiang.email.model.StockSmartWatchResponse;
+import com.mjiang.email.model.StockSmartWatchVO;
 import com.mjiang.email.model.StockTradeData;
-import com.mjiang.email.model.StockTradeHistory;
 import com.mjiang.email.service.StockService;
 import com.mjiang.email.util.JsonUtil;
+import com.mjiang.email.util.StockSmartWatchUtil;
 import com.mjiang.email.util.StockTradeHistoryUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +30,9 @@ public class StockDataRestController {
     @Autowired
     private StockService stockService;
 
-    @PostMapping(value = "tradeHistory", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "tradeHistory",
+                 produces = MediaType.APPLICATION_JSON_VALUE,
+                 consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> postPurchaseSummary(@RequestBody String jsonString) {
 
         Map<String, Object> jsonMap = JsonUtil.convertToMap(jsonString);
@@ -36,6 +40,20 @@ public class StockDataRestController {
 
         int count = stockService.insertStockTradeHistory(stockTradeDataList);
         logger.info("Totally {} records have been imported", count);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "smartWatch",
+                 produces = MediaType.APPLICATION_JSON_VALUE,
+                 consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> postSmartWatch(@RequestBody String jsonString) {
+
+        Map<String, Object> jsonMap = JsonUtil.convertToMap(jsonString);
+        List<StockSmartWatchVO> smartWatchAllStocks = StockSmartWatchUtil.convertToStockSmartWatchVOList(jsonString);
+
+        int count = stockService.insertStockSmartWatch(smartWatchAllStocks);
+        logger.info("Totally {} records for smart watch have been imported", count);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

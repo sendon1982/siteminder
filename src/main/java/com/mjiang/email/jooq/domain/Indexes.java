@@ -4,16 +4,19 @@
 package com.mjiang.email.jooq.domain;
 
 
-import javax.annotation.Generated;
-
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
 import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.SmartWatchRef;
 import com.mjiang.email.jooq.domain.tables.StockInfoBack;
 import com.mjiang.email.jooq.domain.tables.StockInfoFront;
 import com.mjiang.email.jooq.domain.tables.StockInfoNo;
+import com.mjiang.email.jooq.domain.tables.StockSmartWatch;
 import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
+
+import javax.annotation.Generated;
+
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
@@ -42,12 +45,15 @@ public class Indexes {
     public static final Index DRAGON_TIGER_STOCK_PRIMARY = Indexes0.DRAGON_TIGER_STOCK_PRIMARY;
     public static final Index DRAGON_TIGER_STOCK_UNIQUE_INDEX = Indexes0.DRAGON_TIGER_STOCK_UNIQUE_INDEX;
     public static final Index PUBLIC_HOLIDAY_PRIMARY = Indexes0.PUBLIC_HOLIDAY_PRIMARY;
+    public static final Index SMART_WATCH_REF_PRIMARY = Indexes0.SMART_WATCH_REF_PRIMARY;
+    public static final Index SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE = Indexes0.SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE;
     public static final Index STOCK_INFO_BACK_PRIMARY = Indexes0.STOCK_INFO_BACK_PRIMARY;
     public static final Index STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE = Indexes0.STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE;
     public static final Index STOCK_INFO_FRONT_PRIMARY = Indexes0.STOCK_INFO_FRONT_PRIMARY;
     public static final Index STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE = Indexes0.STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE;
     public static final Index STOCK_INFO_NO_PRIMARY = Indexes0.STOCK_INFO_NO_PRIMARY;
     public static final Index STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE = Indexes0.STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE;
+    public static final Index STOCK_SMART_WATCH_PRIMARY = Indexes0.STOCK_SMART_WATCH_PRIMARY;
     public static final Index STOCK_TRADE_HISTORY_INFO_PRIMARY = Indexes0.STOCK_TRADE_HISTORY_INFO_PRIMARY;
     public static final Index STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX = Indexes0.STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX;
 
@@ -62,12 +68,15 @@ public class Indexes {
         public static Index DRAGON_TIGER_STOCK_PRIMARY = Internal.createIndex("PRIMARY", DragonTigerStock.DRAGON_TIGER_STOCK, new OrderField[] { DragonTigerStock.DRAGON_TIGER_STOCK.ID }, true);
         public static Index DRAGON_TIGER_STOCK_UNIQUE_INDEX = Internal.createIndex("unique_index", DragonTigerStock.DRAGON_TIGER_STOCK, new OrderField[] { DragonTigerStock.DRAGON_TIGER_STOCK.CODE, DragonTigerStock.DRAGON_TIGER_STOCK.TS_DATE, DragonTigerStock.DRAGON_TIGER_STOCK.BROKER, DragonTigerStock.DRAGON_TIGER_STOCK.REASON }, true);
         public static Index PUBLIC_HOLIDAY_PRIMARY = Internal.createIndex("PRIMARY", PublicHoliday.PUBLIC_HOLIDAY, new OrderField[] { PublicHoliday.PUBLIC_HOLIDAY.ID }, true);
+        public static Index SMART_WATCH_REF_PRIMARY = Internal.createIndex("PRIMARY", SmartWatchRef.SMART_WATCH_REF, new OrderField[] { SmartWatchRef.SMART_WATCH_REF.ID }, true);
+        public static Index SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE = Internal.createIndex("smart_watch_ref_CODE_UNIQUE", SmartWatchRef.SMART_WATCH_REF, new OrderField[] { SmartWatchRef.SMART_WATCH_REF.CODE }, true);
         public static Index STOCK_INFO_BACK_PRIMARY = Internal.createIndex("PRIMARY", StockInfoBack.STOCK_INFO_BACK, new OrderField[] { StockInfoBack.STOCK_INFO_BACK.ID }, true);
         public static Index STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE = Internal.createIndex("stock_info_back_CODE_DATE_UNIQUE", StockInfoBack.STOCK_INFO_BACK, new OrderField[] { StockInfoBack.STOCK_INFO_BACK.STOCK_CODE, StockInfoBack.STOCK_INFO_BACK.TS_DATE }, true);
         public static Index STOCK_INFO_FRONT_PRIMARY = Internal.createIndex("PRIMARY", StockInfoFront.STOCK_INFO_FRONT, new OrderField[] { StockInfoFront.STOCK_INFO_FRONT.ID }, true);
         public static Index STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE = Internal.createIndex("stock_info_front_CODE_DATE_UNIQUE", StockInfoFront.STOCK_INFO_FRONT, new OrderField[] { StockInfoFront.STOCK_INFO_FRONT.STOCK_CODE, StockInfoFront.STOCK_INFO_FRONT.TS_DATE }, true);
         public static Index STOCK_INFO_NO_PRIMARY = Internal.createIndex("PRIMARY", StockInfoNo.STOCK_INFO_NO, new OrderField[] { StockInfoNo.STOCK_INFO_NO.ID }, true);
         public static Index STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE = Internal.createIndex("stock_info_no_CODE_DATE_UNIQUE", StockInfoNo.STOCK_INFO_NO, new OrderField[] { StockInfoNo.STOCK_INFO_NO.STOCK_CODE, StockInfoNo.STOCK_INFO_NO.TS_DATE }, true);
+        public static Index STOCK_SMART_WATCH_PRIMARY = Internal.createIndex("PRIMARY", StockSmartWatch.STOCK_SMART_WATCH, new OrderField[] { StockSmartWatch.STOCK_SMART_WATCH.ID }, true);
         public static Index STOCK_TRADE_HISTORY_INFO_PRIMARY = Internal.createIndex("PRIMARY", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, new OrderField[] { StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID }, true);
         public static Index STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX = Internal.createIndex("stock_trade_history_uni_index", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, new OrderField[] { StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.STOCK_CODE, StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.TS_DATE }, true);
     }

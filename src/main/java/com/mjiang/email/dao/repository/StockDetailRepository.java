@@ -19,7 +19,7 @@ public class StockDetailRepository extends BaseRepository {
          */
         context.insertInto(STOCK_INFO_NO)
                .set(STOCK_INFO_NO.STOCK_CODE, stockCode)
-               .set(STOCK_INFO_NO.TS_DATE, DateUtil.localdateToDate(mashDatum.getDate()))
+               .set(STOCK_INFO_NO.TS_DATE, DateUtil.localDateToDate(mashDatum.getDate()))
                .set(STOCK_INFO_NO.OPEN, mashDatum.getKline().getOpen())
                .set(STOCK_INFO_NO.HIGH, mashDatum.getKline().getHigh())
                .set(STOCK_INFO_NO.LOW, mashDatum.getKline().getLow())
@@ -56,7 +56,7 @@ public class StockDetailRepository extends BaseRepository {
          */
         context.insertInto(STOCK_INFO_FRONT)
                .set(STOCK_INFO_FRONT.STOCK_CODE, stockCode)
-               .set(STOCK_INFO_FRONT.TS_DATE, DateUtil.localdateToDate(mashDatum.getDate()))
+               .set(STOCK_INFO_FRONT.TS_DATE, DateUtil.localDateToDate(mashDatum.getDate()))
                .set(STOCK_INFO_FRONT.OPEN, mashDatum.getKline().getOpen())
                .set(STOCK_INFO_FRONT.HIGH, mashDatum.getKline().getHigh())
                .set(STOCK_INFO_FRONT.LOW, mashDatum.getKline().getLow())
@@ -93,7 +93,7 @@ public class StockDetailRepository extends BaseRepository {
          */
         context.insertInto(STOCK_INFO_BACK)
                .set(STOCK_INFO_BACK.STOCK_CODE, stockCode)
-               .set(STOCK_INFO_BACK.TS_DATE, DateUtil.localdateToDate(mashDatum.getDate()))
+               .set(STOCK_INFO_BACK.TS_DATE, DateUtil.localDateToDate(mashDatum.getDate()))
                .set(STOCK_INFO_BACK.OPEN, mashDatum.getKline().getOpen())
                .set(STOCK_INFO_BACK.HIGH, mashDatum.getKline().getHigh())
                .set(STOCK_INFO_BACK.LOW, mashDatum.getKline().getLow())

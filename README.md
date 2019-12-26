@@ -181,3 +181,8 @@ curl -vX POST "http://localhost:8080/stock/detail/front" -d @data.json --header 
 ````
 curl -vX POST "http://localhost:8080/stock/detail/back" -d @data.json --header "Content-Type: application/json"
 ````
+
+6.Use `curl` to inert data into DB for stock smart watch `smartWatch.json` where the json file on current path
+````
+curl -vX POST "http://localhost:8080/stock/smartWatch" -d @smartWatch.json --header "Content-Type: application/json"
+````

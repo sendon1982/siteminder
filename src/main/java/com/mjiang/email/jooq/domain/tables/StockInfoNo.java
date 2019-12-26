@@ -4,16 +4,18 @@
 package com.mjiang.email.jooq.domain.tables;
 
 
-import javax.annotation.Generated;
+import com.mjiang.email.jooq.domain.Indexes;
+import com.mjiang.email.jooq.domain.Keys;
+import com.mjiang.email.jooq.domain.Tushare;
+import com.mjiang.email.jooq.domain.tables.records.StockInfoNoRecord;
+
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mjiang.email.jooq.domain.Indexes;
-import com.mjiang.email.jooq.domain.Keys;
-import com.mjiang.email.jooq.domain.Tushare;
-import com.mjiang.email.jooq.domain.tables.records.StockInfoNoRecord;
+import javax.annotation.Generated;
+
 import org.jooq.Field;
 import org.jooq.Identity;
 import org.jooq.Index;
@@ -39,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
 
-    private static final long serialVersionUID = -587120542;
+    private static final long serialVersionUID = -1695523242;
 
     /**
      * The reference instance of <code>tushare.stock_info_no</code>
@@ -72,32 +74,32 @@ public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
     /**
      * The column <code>tushare.stock_info_no.open</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> OPEN = createField("open", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> OPEN = createField("open", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.high</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> HIGH = createField("high", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> HIGH = createField("high", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.low</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> LOW = createField("low", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> LOW = createField("low", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.close</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> CLOSE = createField("close", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> CLOSE = createField("close", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.volume</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> VOLUME = createField("volume", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> VOLUME = createField("volume", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.amount</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> AMOUNT = createField("amount", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ccl</code>.
@@ -107,22 +109,22 @@ public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
     /**
      * The column <code>tushare.stock_info_no.preClose</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> PRECLOSE = createField("preClose", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> PRECLOSE = createField("preClose", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.netChangeRatio</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> NETCHANGERATIO = createField("netChangeRatio", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> NETCHANGERATIO = createField("netChangeRatio", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma5_volume</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA5_VOLUME = createField("ma5_volume", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA5_VOLUME = createField("ma5_volume", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma5_avgPrice</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA5_AVGPRICE = createField("ma5_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA5_AVGPRICE = createField("ma5_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma5_ccl</code>.
@@ -132,12 +134,12 @@ public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
     /**
      * The column <code>tushare.stock_info_no.ma10_volume</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA10_VOLUME = createField("ma10_volume", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA10_VOLUME = createField("ma10_volume", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma10_avgPrice</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA10_AVGPRICE = createField("ma10_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA10_AVGPRICE = createField("ma10_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma10_ccl</code>.
@@ -147,12 +149,12 @@ public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
     /**
      * The column <code>tushare.stock_info_no.ma20_volume</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA20_VOLUME = createField("ma20_volume", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA20_VOLUME = createField("ma20_volume", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma20_avgPrice</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MA20_AVGPRICE = createField("ma20_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(15, 2), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MA20_AVGPRICE = createField("ma20_avgPrice", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.ma20_ccl</code>.
@@ -162,47 +164,47 @@ public class StockInfoNo extends TableImpl<StockInfoNoRecord> {
     /**
      * The column <code>tushare.stock_info_no.macd_diff</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MACD_DIFF = createField("macd_diff", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MACD_DIFF = createField("macd_diff", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.macd_dea</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MACD_DEA = createField("macd_dea", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MACD_DEA = createField("macd_dea", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.macd</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> MACD = createField("macd", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> MACD = createField("macd", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.kdj_k</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_K = createField("kdj_k", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_K = createField("kdj_k", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.kdj_d</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_D = createField("kdj_d", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_D = createField("kdj_d", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.kdj_j</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_J = createField("kdj_j", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> KDJ_J = createField("kdj_j", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.rsi1</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> RSI1 = createField("rsi1", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> RSI1 = createField("rsi1", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.rsi2</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> RSI2 = createField("rsi2", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> RSI2 = createField("rsi2", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * The column <code>tushare.stock_info_no.rsi3</code>.
      */
-    public final TableField<StockInfoNoRecord, BigDecimal> RSI3 = createField("rsi3", org.jooq.impl.SQLDataType.DECIMAL(15, 6), this, "");
+    public final TableField<StockInfoNoRecord, BigDecimal> RSI3 = createField("rsi3", org.jooq.impl.SQLDataType.DECIMAL(30, 12), this, "");
 
     /**
      * Create a <code>tushare.stock_info_no</code> table reference

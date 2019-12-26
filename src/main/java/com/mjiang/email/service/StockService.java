@@ -3,6 +3,9 @@ package com.mjiang.email.service;
 import java.util.List;
 
 import com.mjiang.email.dao.repository.StockRepository;
+import com.mjiang.email.model.SmartWatchAllStock;
+import com.mjiang.email.model.StockSmartWatchResponse;
+import com.mjiang.email.model.StockSmartWatchVO;
 import com.mjiang.email.model.StockTradeData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +39,31 @@ public class StockService {
 
         try {
             stockRepository.insertStockTradeHistory(stockTradeData);
+            count++;
+        } catch (DuplicateKeyException e) {
+            log.warn(e.getMessage());
+        }
+
+        return count;
+    }
+
+    @Transactional
+    public int insertStockSmartWatch(List<StockSmartWatchVO> stockSmartWatchVOList) {
+        int count = 0;
+
+        for (StockSmartWatchVO smartWatchVO : stockSmartWatchVOList) {
+            count = count + this.insertStockSmartWatch(smartWatchVO);
+        }
+
+        return count;
+    }
+
+    @Transactional
+    public int insertStockSmartWatch(StockSmartWatchVO smartWatchVO) {
+        int count = 0;
+
+        try {
+            stockRepository.insertStockSmartWatch(smartWatchVO);
             count++;
         } catch (DuplicateKeyException e) {
             log.warn(e.getMessage());

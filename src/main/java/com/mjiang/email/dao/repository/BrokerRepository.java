@@ -3,9 +3,7 @@ package com.mjiang.email.dao.repository;
 import com.mjiang.email.model.BrokerPlacedOrder;
 import com.mjiang.email.model.BrokerPlacedOrder.StockSummary;
 import com.mjiang.email.util.DateUtil;
-import org.jooq.DSLContext;
 import org.jooq.Record;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import static com.mjiang.email.jooq.domain.Tables.BROKER_BUY_STOCK_INFO;
@@ -33,7 +31,7 @@ public class BrokerRepository extends BaseRepository {
                    brokerPlacedOrder.getJmMoney(),
                    brokerPlacedOrder.getBrokerBuyCount(),
                    brokerPlacedOrder.getBrokerSellCount(),
-                   DateUtil.localdateToDate(brokerPlacedOrder.getDate()))
+                   DateUtil.localDateToDate(brokerPlacedOrder.getDate()))
                .returning(BROKER_BUY_SUMMARY.ID)
                .fetchOne();
 

@@ -15,7 +15,7 @@ public class DateConverter implements Converter<Date, LocalDate> {
 
     @Override
     public Date to(LocalDate ld) {
-        return ld == null ? null : DateUtil.localdateToDate(ld);
+        return ld == null ? null : DateUtil.localDateToDate(ld);
     }
 
     @Override

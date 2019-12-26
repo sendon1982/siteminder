@@ -4,31 +4,36 @@
 package com.mjiang.email.jooq.domain;
 
 
-import javax.annotation.Generated;
-
 import com.mjiang.email.jooq.domain.tables.BrokerBuyStockInfo;
 import com.mjiang.email.jooq.domain.tables.BrokerBuySummary;
 import com.mjiang.email.jooq.domain.tables.DragonTigerStock;
 import com.mjiang.email.jooq.domain.tables.PublicHoliday;
+import com.mjiang.email.jooq.domain.tables.SmartWatchRef;
 import com.mjiang.email.jooq.domain.tables.StockInfoBack;
 import com.mjiang.email.jooq.domain.tables.StockInfoFront;
 import com.mjiang.email.jooq.domain.tables.StockInfoNo;
+import com.mjiang.email.jooq.domain.tables.StockSmartWatch;
 import com.mjiang.email.jooq.domain.tables.StockTradeHistoryInfo;
 import com.mjiang.email.jooq.domain.tables.records.BrokerBuyStockInfoRecord;
 import com.mjiang.email.jooq.domain.tables.records.BrokerBuySummaryRecord;
 import com.mjiang.email.jooq.domain.tables.records.DragonTigerStockRecord;
 import com.mjiang.email.jooq.domain.tables.records.PublicHolidayRecord;
+import com.mjiang.email.jooq.domain.tables.records.SmartWatchRefRecord;
 import com.mjiang.email.jooq.domain.tables.records.StockInfoBackRecord;
 import com.mjiang.email.jooq.domain.tables.records.StockInfoFrontRecord;
 import com.mjiang.email.jooq.domain.tables.records.StockInfoNoRecord;
+import com.mjiang.email.jooq.domain.tables.records.StockSmartWatchRecord;
 import com.mjiang.email.jooq.domain.tables.records.StockTradeHistoryInfoRecord;
+
+import javax.annotation.Generated;
+
 import org.jooq.Identity;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling foreign key relationships and constraints of tables of
+ * A class modelling foreign key relationships and constraints of tables of 
  * the <code>tushare</code> schema.
  */
 @Generated(
@@ -49,9 +54,11 @@ public class Keys {
     public static final Identity<BrokerBuySummaryRecord, Long> IDENTITY_BROKER_BUY_SUMMARY = Identities0.IDENTITY_BROKER_BUY_SUMMARY;
     public static final Identity<DragonTigerStockRecord, Long> IDENTITY_DRAGON_TIGER_STOCK = Identities0.IDENTITY_DRAGON_TIGER_STOCK;
     public static final Identity<PublicHolidayRecord, Long> IDENTITY_PUBLIC_HOLIDAY = Identities0.IDENTITY_PUBLIC_HOLIDAY;
+    public static final Identity<SmartWatchRefRecord, Long> IDENTITY_SMART_WATCH_REF = Identities0.IDENTITY_SMART_WATCH_REF;
     public static final Identity<StockInfoBackRecord, Integer> IDENTITY_STOCK_INFO_BACK = Identities0.IDENTITY_STOCK_INFO_BACK;
     public static final Identity<StockInfoFrontRecord, Integer> IDENTITY_STOCK_INFO_FRONT = Identities0.IDENTITY_STOCK_INFO_FRONT;
     public static final Identity<StockInfoNoRecord, Integer> IDENTITY_STOCK_INFO_NO = Identities0.IDENTITY_STOCK_INFO_NO;
+    public static final Identity<StockSmartWatchRecord, Long> IDENTITY_STOCK_SMART_WATCH = Identities0.IDENTITY_STOCK_SMART_WATCH;
     public static final Identity<StockTradeHistoryInfoRecord, Long> IDENTITY_STOCK_TRADE_HISTORY_INFO = Identities0.IDENTITY_STOCK_TRADE_HISTORY_INFO;
 
     // -------------------------------------------------------------------------
@@ -64,12 +71,15 @@ public class Keys {
     public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_PRIMARY = UniqueKeys0.KEY_DRAGON_TIGER_STOCK_PRIMARY;
     public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX = UniqueKeys0.KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX;
     public static final UniqueKey<PublicHolidayRecord> KEY_PUBLIC_HOLIDAY_PRIMARY = UniqueKeys0.KEY_PUBLIC_HOLIDAY_PRIMARY;
+    public static final UniqueKey<SmartWatchRefRecord> KEY_SMART_WATCH_REF_PRIMARY = UniqueKeys0.KEY_SMART_WATCH_REF_PRIMARY;
+    public static final UniqueKey<SmartWatchRefRecord> KEY_SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE = UniqueKeys0.KEY_SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE;
     public static final UniqueKey<StockInfoBackRecord> KEY_STOCK_INFO_BACK_PRIMARY = UniqueKeys0.KEY_STOCK_INFO_BACK_PRIMARY;
     public static final UniqueKey<StockInfoBackRecord> KEY_STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE = UniqueKeys0.KEY_STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE;
     public static final UniqueKey<StockInfoFrontRecord> KEY_STOCK_INFO_FRONT_PRIMARY = UniqueKeys0.KEY_STOCK_INFO_FRONT_PRIMARY;
     public static final UniqueKey<StockInfoFrontRecord> KEY_STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE = UniqueKeys0.KEY_STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE;
     public static final UniqueKey<StockInfoNoRecord> KEY_STOCK_INFO_NO_PRIMARY = UniqueKeys0.KEY_STOCK_INFO_NO_PRIMARY;
     public static final UniqueKey<StockInfoNoRecord> KEY_STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE = UniqueKeys0.KEY_STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE;
+    public static final UniqueKey<StockSmartWatchRecord> KEY_STOCK_SMART_WATCH_PRIMARY = UniqueKeys0.KEY_STOCK_SMART_WATCH_PRIMARY;
     public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY = UniqueKeys0.KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY;
     public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX = UniqueKeys0.KEY_STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX;
 
@@ -87,9 +97,11 @@ public class Keys {
         public static Identity<BrokerBuySummaryRecord, Long> IDENTITY_BROKER_BUY_SUMMARY = Internal.createIdentity(BrokerBuySummary.BROKER_BUY_SUMMARY, BrokerBuySummary.BROKER_BUY_SUMMARY.ID);
         public static Identity<DragonTigerStockRecord, Long> IDENTITY_DRAGON_TIGER_STOCK = Internal.createIdentity(DragonTigerStock.DRAGON_TIGER_STOCK, DragonTigerStock.DRAGON_TIGER_STOCK.ID);
         public static Identity<PublicHolidayRecord, Long> IDENTITY_PUBLIC_HOLIDAY = Internal.createIdentity(PublicHoliday.PUBLIC_HOLIDAY, PublicHoliday.PUBLIC_HOLIDAY.ID);
+        public static Identity<SmartWatchRefRecord, Long> IDENTITY_SMART_WATCH_REF = Internal.createIdentity(SmartWatchRef.SMART_WATCH_REF, SmartWatchRef.SMART_WATCH_REF.ID);
         public static Identity<StockInfoBackRecord, Integer> IDENTITY_STOCK_INFO_BACK = Internal.createIdentity(StockInfoBack.STOCK_INFO_BACK, StockInfoBack.STOCK_INFO_BACK.ID);
         public static Identity<StockInfoFrontRecord, Integer> IDENTITY_STOCK_INFO_FRONT = Internal.createIdentity(StockInfoFront.STOCK_INFO_FRONT, StockInfoFront.STOCK_INFO_FRONT.ID);
         public static Identity<StockInfoNoRecord, Integer> IDENTITY_STOCK_INFO_NO = Internal.createIdentity(StockInfoNo.STOCK_INFO_NO, StockInfoNo.STOCK_INFO_NO.ID);
+        public static Identity<StockSmartWatchRecord, Long> IDENTITY_STOCK_SMART_WATCH = Internal.createIdentity(StockSmartWatch.STOCK_SMART_WATCH, StockSmartWatch.STOCK_SMART_WATCH.ID);
         public static Identity<StockTradeHistoryInfoRecord, Long> IDENTITY_STOCK_TRADE_HISTORY_INFO = Internal.createIdentity(StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID);
     }
 
@@ -100,12 +112,15 @@ public class Keys {
         public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_PRIMARY = Internal.createUniqueKey(DragonTigerStock.DRAGON_TIGER_STOCK, "KEY_dragon_tiger_stock_PRIMARY", DragonTigerStock.DRAGON_TIGER_STOCK.ID);
         public static final UniqueKey<DragonTigerStockRecord> KEY_DRAGON_TIGER_STOCK_UNIQUE_INDEX = Internal.createUniqueKey(DragonTigerStock.DRAGON_TIGER_STOCK, "KEY_dragon_tiger_stock_unique_index", DragonTigerStock.DRAGON_TIGER_STOCK.CODE, DragonTigerStock.DRAGON_TIGER_STOCK.TS_DATE, DragonTigerStock.DRAGON_TIGER_STOCK.BROKER, DragonTigerStock.DRAGON_TIGER_STOCK.REASON);
         public static final UniqueKey<PublicHolidayRecord> KEY_PUBLIC_HOLIDAY_PRIMARY = Internal.createUniqueKey(PublicHoliday.PUBLIC_HOLIDAY, "KEY_public_holiday_PRIMARY", PublicHoliday.PUBLIC_HOLIDAY.ID);
+        public static final UniqueKey<SmartWatchRefRecord> KEY_SMART_WATCH_REF_PRIMARY = Internal.createUniqueKey(SmartWatchRef.SMART_WATCH_REF, "KEY_smart_watch_ref_PRIMARY", SmartWatchRef.SMART_WATCH_REF.ID);
+        public static final UniqueKey<SmartWatchRefRecord> KEY_SMART_WATCH_REF_SMART_WATCH_REF_CODE_UNIQUE = Internal.createUniqueKey(SmartWatchRef.SMART_WATCH_REF, "KEY_smart_watch_ref_smart_watch_ref_CODE_UNIQUE", SmartWatchRef.SMART_WATCH_REF.CODE);
         public static final UniqueKey<StockInfoBackRecord> KEY_STOCK_INFO_BACK_PRIMARY = Internal.createUniqueKey(StockInfoBack.STOCK_INFO_BACK, "KEY_stock_info_back_PRIMARY", StockInfoBack.STOCK_INFO_BACK.ID);
         public static final UniqueKey<StockInfoBackRecord> KEY_STOCK_INFO_BACK_STOCK_INFO_BACK_CODE_DATE_UNIQUE = Internal.createUniqueKey(StockInfoBack.STOCK_INFO_BACK, "KEY_stock_info_back_stock_info_back_CODE_DATE_UNIQUE", StockInfoBack.STOCK_INFO_BACK.STOCK_CODE, StockInfoBack.STOCK_INFO_BACK.TS_DATE);
         public static final UniqueKey<StockInfoFrontRecord> KEY_STOCK_INFO_FRONT_PRIMARY = Internal.createUniqueKey(StockInfoFront.STOCK_INFO_FRONT, "KEY_stock_info_front_PRIMARY", StockInfoFront.STOCK_INFO_FRONT.ID);
         public static final UniqueKey<StockInfoFrontRecord> KEY_STOCK_INFO_FRONT_STOCK_INFO_FRONT_CODE_DATE_UNIQUE = Internal.createUniqueKey(StockInfoFront.STOCK_INFO_FRONT, "KEY_stock_info_front_stock_info_front_CODE_DATE_UNIQUE", StockInfoFront.STOCK_INFO_FRONT.STOCK_CODE, StockInfoFront.STOCK_INFO_FRONT.TS_DATE);
         public static final UniqueKey<StockInfoNoRecord> KEY_STOCK_INFO_NO_PRIMARY = Internal.createUniqueKey(StockInfoNo.STOCK_INFO_NO, "KEY_stock_info_no_PRIMARY", StockInfoNo.STOCK_INFO_NO.ID);
         public static final UniqueKey<StockInfoNoRecord> KEY_STOCK_INFO_NO_STOCK_INFO_NO_CODE_DATE_UNIQUE = Internal.createUniqueKey(StockInfoNo.STOCK_INFO_NO, "KEY_stock_info_no_stock_info_no_CODE_DATE_UNIQUE", StockInfoNo.STOCK_INFO_NO.STOCK_CODE, StockInfoNo.STOCK_INFO_NO.TS_DATE);
+        public static final UniqueKey<StockSmartWatchRecord> KEY_STOCK_SMART_WATCH_PRIMARY = Internal.createUniqueKey(StockSmartWatch.STOCK_SMART_WATCH, "KEY_stock_smart_watch_PRIMARY", StockSmartWatch.STOCK_SMART_WATCH.ID);
         public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_PRIMARY = Internal.createUniqueKey(StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, "KEY_stock_trade_history_info_PRIMARY", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.ID);
         public static final UniqueKey<StockTradeHistoryInfoRecord> KEY_STOCK_TRADE_HISTORY_INFO_STOCK_TRADE_HISTORY_UNI_INDEX = Internal.createUniqueKey(StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO, "KEY_stock_trade_history_info_stock_trade_history_uni_index", StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.STOCK_CODE, StockTradeHistoryInfo.STOCK_TRADE_HISTORY_INFO.TS_DATE);
     }

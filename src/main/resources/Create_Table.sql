@@ -76,7 +76,7 @@ CREATE TABLE `public_holiday`
 
 
 CREATE TABLE `stock_info_no` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `stock_code` VARCHAR(45) NOT NULL,
   `ts_date` date NOT NULL,
   `open` DECIMAL(30,12) NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `stock_info_no` (
   UNIQUE INDEX `stock_info_no_CODE_DATE_UNIQUE` (`stock_code` ASC, `ts_date` ASC) );
 
 CREATE TABLE `stock_info_front` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `stock_code` VARCHAR(45) NOT NULL,
   `ts_date` date NOT NULL,
   `open` DECIMAL(30,12) NULL,
@@ -144,7 +144,7 @@ CREATE TABLE `stock_info_front` (
   UNIQUE INDEX `stock_info_front_CODE_DATE_UNIQUE` (`stock_code` ASC, `ts_date` ASC) );
 
 CREATE TABLE `stock_info_back` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
   `stock_code` VARCHAR(45) NOT NULL,
   `ts_date` date NOT NULL,
   `open` DECIMAL(30,12) NULL,
@@ -175,4 +175,29 @@ CREATE TABLE `stock_info_back` (
   `rsi2` DECIMAL(30,12) NULL,
   `rsi3` DECIMAL(30,12) NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `stock_info_back_CODE_DATE_UNIQUE` (`stock_code` ASC, `ts_date` ASC) );
+  UNIQUE INDEX `stock_info_back_CODE_DATE_UNIQUE` (`stock_code` ASC, `ts_date` ASC)
+);
+
+CREATE TABLE `stock_smart_watch` (
+  `id`              BIGINT NOT NULL AUTO_INCREMENT,
+  `stock_code`      VARCHAR(45) NOT NULL,
+  `stock_name`      VARCHAR(100) NOT NULL,
+  `m_type`          VARCHAR(15) NULL,
+  `date_time`       DATETIME,
+  `type_code`       VARCHAR(15) NULL,
+  `information`     DECIMAL(30,10) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `stock_smart_watch_CODE_MTYPE_TYPECODE_UNIQUE` (`stock_code` ASC, `m_type` ASC, `type_code` ASC)
+);
+
+CREATE TABLE `smart_watch_ref` (
+  `id`              BIGINT NOT NULL AUTO_INCREMENT,
+  `code`            VARCHAR(45) NOT NULL,
+  `name`            VARCHAR(100) NOT NULL,
+  `color`           VARCHAR(15) NULL,
+  `direction`       VARCHAR(15) NULL,
+  `pair`            VARCHAR(15) NULL,
+  `type`            VARCHAR(50) NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `smart_watch_ref_CODE_UNIQUE` (`code` ASC)
+);
