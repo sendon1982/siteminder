@@ -33,7 +33,11 @@ public class StockSmartWatchUtil {
             smartWatchVO.setStockCode(stock.getC());
             smartWatchVO.setStockName(stock.getN());
             smartWatchVO.setmType(String.valueOf(stock.getM()));
-            LocalDateTime localDateTime = DateUtil.timeToCurrentLocalDateTime(String.valueOf(stock.getTm()));
+            String timeString = String.valueOf(stock.getTm());
+            if (timeString != null && timeString.length() == 5) {
+                timeString = "0" + timeString;
+            }
+            LocalDateTime localDateTime = DateUtil.timeToCurrentLocalDateTime(timeString);
             smartWatchVO.setDateTime(localDateTime);
             smartWatchVO.setTypeCode(String.valueOf(stock.getT()));
             smartWatchVO.setInformation(new BigDecimal(stock.getI()));
